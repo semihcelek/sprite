@@ -11,21 +11,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     [SerializeField]private float tileWith=2;
+    //private GameObject swipeInput;
+    private SwipeControls sInput;
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        sInput = new SwipeControls();
     }
 
     void Update()
     {
+        sInput.fastSwipe();
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, playerSpeed);
+        Vector3 move = new Vector3(sInput.InputVector.x, 0, playerSpeed);
         controller.Move(move * Time.deltaTime * playerSpeed);
 
         if (move != Vector3.zero)
@@ -34,14 +38,14 @@ public class PlayerController : MonoBehaviour
         }
 
         // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        if (sInput.InputVector.y==-1 && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        
+        //Debug.Log(sInput.HorizontalInput);
     }
 
 
