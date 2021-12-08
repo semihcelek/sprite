@@ -574,10 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6d1e877696047788617207727101b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 3
-  laneDistance: 1.6
-  jumpForce: 5
-  Gravity: -10
+  playerSpeed: 4
+  jumpHeight: 2
+  tileWith: 2
 --- !u!143 &1595110937
 CharacterController:
   m_ObjectHideFlags: 0
@@ -650,6 +649,67 @@ PrefabInstance:
     - target: {fileID: 6646863504990909944, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
       propertyPath: m_Name
       value: Road
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646863504990909944, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+--- !u!1001 &6611513770331996456
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302145051536256834, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646863504990909944, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
+      propertyPath: m_Name
+      value: Road (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6646863504990909944, guid: 2158fe2c4ec00409c8cb62e1722846df, type: 3}
       propertyPath: m_IsActive

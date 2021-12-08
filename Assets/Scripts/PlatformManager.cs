@@ -23,7 +23,7 @@ public class PlatformManager : MonoBehaviour
     }
     private void Update()
     {
-        if (PlayerPosition.position.z -15 > zOffset-((platformPrefabs.Length)*tileLenght))
+        if (PlayerPosition.position.z -30 > zOffset-((platformPrefabs.Length)*tileLenght))
         {
             SpawnTile(Random.Range(0, platformPrefabs.Length));
             Debug.Log(zOffset);
