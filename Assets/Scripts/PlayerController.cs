@@ -7,10 +7,9 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    [SerializeField]private float playerSpeed = 2.0f;
-    [SerializeField]private float jumpHeight = 1.0f;
+    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
-    [SerializeField]private float tileWith=2;
     //private GameObject swipeInput;
     private SwipeControls sInput;
 
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Changes the height position of the player..
-        if (sInput.InputVector.y==-1 && groundedPlayer)
+        if (sInput.InputVector.y == -1 && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -47,7 +46,14 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
         //Debug.Log(sInput.HorizontalInput);
     }
-
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.tag == "Obstacle")
+        {
+            Debug.Log("collide");
+            GameManager.isGameOver = true;
+        }
+    }
 
 
 
