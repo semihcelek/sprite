@@ -44,16 +44,34 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        
         //Debug.Log(sInput.HorizontalInput);
+
     }
-    private void OnCollisionEnter(Collision other)
+    private void FixedUpdate()
     {
-        if (other.transform.tag == "Obstacle")
+        controller.Move(playerVelocity * Time.deltaTime);
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.transform.tag == "Obstacle")
         {
             Debug.Log("collide");
-            GameManager.isGameOver = true;
+            //GameManager.isGameOver = true;
+            GameManager.game = GameManager.GameState.IsGameOver;
         }
+
     }
+
+
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     if (other.transform.tag == "Obstacle")
+    //     {
+    //         Debug.Log("collide");
+    //         GameManager.isGameOver = true;
+    //     }
+    // }
 
 
 
