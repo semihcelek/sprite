@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         switch (game)
         {
             case GameState.MainMenu:
-                Debug.Log("main menu");
+                //Debug.Log("main menu");
                 if (!currentScene.Equals("MainMenu"))
                 {
                     Time.timeScale = 1;
@@ -63,9 +63,10 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.IsGameOver:
-                Debug.Log("Game over");
+                //Debug.Log("Game over");
                 Time.timeScale = 0;
                 currentScene = "gameover";
+                //StartCoroutine(StopTheGame());
                 break;
 
 
@@ -75,6 +76,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //IEnumerator StopTheGame()
+    //{
+    //    yield return new WaitForSeconds(2);
+    //    Debug.Log("Game over");
+    //    Time.timeScale = 0;
+    //    currentScene = "gameover";
+    //}
 
 
     //public void ChangeGameState(GameState gs)
