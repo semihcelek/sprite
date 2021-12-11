@@ -12,11 +12,21 @@ public class PlayerController : MonoBehaviour
     private float gravityValue = -9.81f;
     //private GameObject swipeInput;
     private SwipeControls sInput;
+    private Animator playerAnimator;
+    private int isRunningHash;
+    private int isDeadHash;
+    private int isJumpedHash;
+    private bool isCollided=false;
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        playerAnimator = GetComponent<Animator>();
         sInput = new SwipeControls();
+        playerAnimator.SetBool("isDead", false);
+        isRunningHash = Animator.StringToHash("isRunning");
+        isDeadHash = Animator.StringToHash("isDead");
+        isJumpedHash = Animator.StringToHash("isJumped");
     }
 
     void Update()
@@ -29,10 +39,13 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 move = new Vector3(sInput.InputVector.x, 0, playerSpeed);
-        controller.Move(move * Time.deltaTime * playerSpeed);
+
 
         if (move != Vector3.zero)
         {
+            playerAnimator.SetBool(isRunningHash, true);
+
+
             gameObject.transform.forward = move;
         }
 
@@ -40,38 +53,49 @@ public class PlayerController : MonoBehaviour
         if (sInput.InputVector.y == -1 && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+            playerAnimator.SetBool(isRunningHash, false);
+            playerAnimator.SetBool(isJumpedHash, true);
+
+        } else
+        {
+            playerAnimator.SetBool(isJumpedHash, false);
         }
 
-        playerVelocity.y += gravityValue * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
-        
-        //Debug.Log(sInput.HorizontalInput);
+        Debug.Log(isCollided); 
+        if (!isCollided)
+        {
+            controller.Move(move * Time.deltaTime * playerSpeed);
+            playerVelocity.y += gravityValue * Time.deltaTime;
+            controller.Move(playerVelocity * Time.deltaTime);
+        } else
+        {
+            controller.Move(Vector3.zero);
+        }
 
     }
-    private void FixedUpdate()
-    {
-        controller.Move(playerVelocity * Time.deltaTime);
-    }
+
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.transform.tag == "Obstacle")
         {
-            Debug.Log("collide");
+            isCollided = true;
+            playerAnimator.SetBool(isDeadHash, true);
             //GameManager.isGameOver = true;
-            GameManager.game = GameManager.GameState.IsGameOver;
+            //GameManager.game = GameManager.GameState.IsGameOver;
+            StartCoroutine(waitForDeadAnim());
+
         }
 
     }
 
+    private IEnumerator  waitForDeadAnim()
+    {
+        yield return new WaitForSeconds(3);
 
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.transform.tag == "Obstacle")
-    //     {
-    //         Debug.Log("collide");
-    //         GameManager.isGameOver = true;
-    //     }
-    // }
+        playerAnimator.SetBool(isDeadHash, false);
+        GameManager.game = GameManager.GameState.IsGameOver;
+    }
+
 
 
 
