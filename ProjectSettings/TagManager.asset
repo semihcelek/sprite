@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Score
+  - MenuChar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - 
