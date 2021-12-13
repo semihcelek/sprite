@@ -10,91 +10,79 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
-    //private GameObject swipeInput;
-    private SwipeControls sInput;
-    private Animator playerAnimator;
-    private int isRunningHash;
-    private int isDeadHash;
-    private int isJumpedHash;
-    private bool isCollided=false;
+    //private UserInput userInput;
+    private SwipeControls userInput;
+    private bool stopPlayer = false;
+
+    private void Awake()
+    {
+        userInput = GetComponent<SwipeControls>();
+        controller = gameObject.GetComponent<CharacterController>();
+        PlayerHealth.onStopMovement += StopPlayerMove;
+    }
 
     private void Start()
     {
-        controller = gameObject.GetComponent<CharacterController>();
-        playerAnimator = GetComponent<Animator>();
-        sInput = new SwipeControls();
-        playerAnimator.SetBool("isDead", false);
-        isRunningHash = Animator.StringToHash("isRunning");
-        isDeadHash = Animator.StringToHash("isDead");
-        isJumpedHash = Animator.StringToHash("isJumped");
+
     }
 
     void Update()
     {
-        sInput.fastSwipe();
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(sInput.InputVector.x, 0, playerSpeed);
-
+        Vector3 move = new Vector3(userInput.Horizontal, 0, playerSpeed);
 
         if (move != Vector3.zero)
         {
-            playerAnimator.SetBool(isRunningHash, true);
-
-
-            gameObject.transform.forward = move;
+           gameObject.transform.forward = move;
         }
 
-        // Changes the height position of the player..
-        if (sInput.InputVector.y == -1 && groundedPlayer)
+        if (userInput.Vertical== 1 && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-            playerAnimator.SetBool(isRunningHash, false);
-            playerAnimator.SetBool(isJumpedHash, true);
-
-        } else
-        {
-            playerAnimator.SetBool(isJumpedHash, false);
         }
 
-        Debug.Log(isCollided); 
-        if (!isCollided)
+        if (stopPlayer)
+        {
+            controller.Move(Vector3.zero);
+        }
+        else
         {
             controller.Move(move * Time.deltaTime * playerSpeed);
             playerVelocity.y += gravityValue * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
-        } else
-        {
-            controller.Move(Vector3.zero);
         }
-
     }
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    public void StopPlayerMove()
     {
-        if (hit.transform.tag == "Obstacle")
-        {
-            isCollided = true;
-            playerAnimator.SetBool(isDeadHash, true);
-            //GameManager.isGameOver = true;
-            //GameManager.game = GameManager.GameState.IsGameOver;
-            StartCoroutine(waitForDeadAnim());
-
-        }
-
+        stopPlayer = true;
     }
 
-    private IEnumerator  waitForDeadAnim()
-    {
-        yield return new WaitForSeconds(3);
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    if (hit.transform.tag == "Obstacle")
+    //    {
+    //        isCollided = true;
+    //        playerAnimator.SetBool(isDeadHash, true);
+    //        //GameManager.isGameOver = true;
+    //        //GameManager.game = GameManager.GameState.IsGameOver;
+    //        StartCoroutine(waitForDeadAnim());
 
-        playerAnimator.SetBool(isDeadHash, false);
-        GameManager.game = GameManager.GameState.IsGameOver;
-    }
+    //    }
+
+    //}
+
+    //private IEnumerator  waitForDeadAnim()
+    //{
+    //    yield return new WaitForSeconds(3);
+
+    //    playerAnimator.SetBool(isDeadHash, false);
+    //    GameManager.game = GameManager.GameState.IsGameOver;
+    //}
 
 
 

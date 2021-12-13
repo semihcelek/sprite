@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SwipeControls : MonoBehaviour
 {
-    //public float HorizontalInput;
-    //public float VerticalInput;
-    public bool tap =false;
-    public Vector2 InputVector= new Vector2(0, 0);
+    public float Horizontal { get; private set; }
+    public float Vertical { get; private set; }
+    public bool tap { get; private set; } = false;
+
 
     private Vector2 startTouchPosition;
     private Vector2 currentPosition;
@@ -55,26 +55,26 @@ public class SwipeControls : MonoBehaviour
 
                 if (Distance.x < -swipeRange)
                 {
-                    //HorizontalInput = -1;
-                    InputVector=new Vector2(-1, 0);
+                    Horizontal = -1;
+                    //InputVector=new Vector2(-1, 0);
                     stopTouch = true;
                 }
                 else if (Distance.x > swipeRange)
                 {
-                    //HorizontalInput = 1;
-                    InputVector = new Vector2(1, 0);
+                    Horizontal = 1;
+                    //InputVector = new Vector2(1, 0);
                     stopTouch = true;
                 }
                 else if (Distance.y > swipeRange)
                 {
-                    //VerticalInput = 1;
-                    InputVector = new Vector2(0, -1);
+                    Vertical = 1;
+                    //InputVector = new Vector2(0, -1);
                     stopTouch = true;
                 }
                 else if (Distance.y < -swipeRange)
                 {
-                    //VerticalInput = -1;
-                    InputVector = new Vector2(0, 1);
+                    Vertical = -1;
+                    //InputVector = new Vector2(0, 1);
                     stopTouch = true;
                 }
 
@@ -85,9 +85,9 @@ public class SwipeControls : MonoBehaviour
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             stopTouch = false;
-            //HorizontalInput = 0;
-            //VerticalInput = 0;
-            InputVector = new Vector2(0, 0);
+            Horizontal = 0;
+            Vertical = 0;
+            //InputVector = new Vector2(0, 0);
 
             endTouchPosition = Input.GetTouch(0).position;
 

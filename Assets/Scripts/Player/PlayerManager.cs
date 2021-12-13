@@ -4,28 +4,26 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-     GameObject[] playerPrefabs;
+     public GameObject[] playerPrefabs;
+    public delegate int PlayerSelectionAction();
+    public static PlayerSelectionAction onPlayerSelect;
+
+    public enum PlayerNames
+    {
+        Pearl=0,
+        Jasper=1
+    };
 
 
     private void Awake()
     {
-        Instantiate(playerPrefabs[0], transform.position, transform.rotation);
+        if (onPlayerSelect != null)
+        {
+            Instantiate(playerPrefabs[onPlayerSelect()], transform.position, transform.rotation);
+        }
+        else
+        {
+            Instantiate(playerPrefabs[0], transform.position, transform.rotation);
+        }
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    //public static GameObject GetSelectedCharacter()
-    //{
-    //    return playerPrefabs[0];
-    //}
 }
