@@ -18,12 +18,12 @@ public class PlatformManager : MonoBehaviour
 
         for(int i=0; i<platformPrefabs.Length; i++)
         {
-            SpawnTile(Random.Range(0,platformPrefabs.Length)); 
+            SpawnTile(0); 
         }
     }
     private void Update()
     {
-        if (PlayerPosition.position.z -120 > zOffset-((platformPrefabs.Length)*tileLenght))
+        if (PlayerPosition.position.z -60 > zOffset-((platformPrefabs.Length)*tileLenght))
         {
             SpawnTile(Random.Range(0, platformPrefabs.Length));
             //Debug.Log(zOffset);
@@ -36,7 +36,7 @@ public class PlatformManager : MonoBehaviour
 
     private void SpawnTile(int tileIndex)
     {
-       GameObject tile = Instantiate(platformPrefabs[tileIndex], new Vector3(0,-8, 1 * zOffset) , Quaternion.Euler(-90,90,0));
+       GameObject tile = Instantiate(platformPrefabs[tileIndex], new Vector3(0,-8, 1 * zOffset) , Quaternion.Euler(0,90,0));
         zOffset += tileLenght;
         activeTiles.Add(tile);
 
@@ -47,22 +47,4 @@ public class PlatformManager : MonoBehaviour
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
     }
-
-
-    //void Start()
-    //{
-    //    for(int i = 0; i < platformPrefabs.Length; i++)
-    //    {
-    //        Instantiate(platformPrefabs[i], new Vector3(0, -8, i * 15), Quaternion.Euler(0, 90, 0));
-    //        zOffset += 15;
-    //    }
-    //}
-
-    //public void RecyclePlatform(GameObject platform)
-    //{
-    //    //Destroy(platform);
-    //    platform.transform.position = new Vector3(0, 0, zOffset);
-    //    zOffset += 15;
-    //    Debug.Log(zOffset);
-    //}
 }

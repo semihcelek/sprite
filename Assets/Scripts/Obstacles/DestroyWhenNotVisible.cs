@@ -6,7 +6,7 @@ public class DestroyWhenNotVisible : MonoBehaviour
 {
     private Transform playerPosition;
     [SerializeField] float destoryDistance=60;
-    private void Start()
+    private void Awake()
     {
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
     }

@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     private string currentScene;
 
 
+
+
     //Scene scene = SceneManager.GetActiveScene();
 
     private void Awake()
@@ -29,13 +31,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
 
-    void Start()
-    {
+
         game = GameState.MainMenu;
         currentScene = "MainMenu";
     }
+
 
     // Update is called once per frame
     void Update()
@@ -76,35 +77,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //IEnumerator StopTheGame()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    Debug.Log("Game over");
-    //    Time.timeScale = 0;
-    //    currentScene = "gameover";
-    //}
 
-
-    //public void ChangeGameState(GameState gs)
-    //{
-    //    switch (gState)
-    //    {
-    //        case GameState.MainMenu:
-    //           Debug.Log("main menu");
-    //            break;
-
-    //        case GameState.Level:
-    //            Debug.Log("Level");
-    //            break;
-
-    //        case GameState.IsGameOver:
-    //            Debug.Log("Game over");
-    //            break;
-
-
-    //        default:
-    //            gs = GameState.Idle;
-    //            break;
-    //    }
-    //}
+    
 }
