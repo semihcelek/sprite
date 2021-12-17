@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,12 +15,35 @@ public class PlayerController : MonoBehaviour
     //private UserInput userInput;
     private SwipeControls userInput;
     private bool stopPlayer = false;
+    private bool isPlayerPushed = false;
+
+
 
     private void Awake()
     {
         userInput = GetComponent<SwipeControls>();
         controller = gameObject.GetComponent<CharacterController>();
         PlayerHealth.onStopMovement += StopPlayerMove;
+        WallDamage.onPushCharacter += PushCharacter;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerHealth.onStopMovement -= StopPlayerMove;
+        WallDamage.onPushCharacter -= PushCharacter;
+    }
+
+    private void PushCharacter()
+    {
+        isPlayerPushed = true;
+        StartCoroutine(WaitPush());
+        
+    }
+
+    private IEnumerator WaitPush()
+    {
+        yield return new WaitForSeconds(1);
+        isPlayerPushed = false;
     }
 
     private void Start()
@@ -45,11 +70,17 @@ public class PlayerController : MonoBehaviour
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
-
-        if (stopPlayer)
+        
+        if (isPlayerPushed)
+        {
+            controller.Move(Vector3.back * Time.deltaTime * playerSpeed);
+            playerVelocity.y += gravityValue * Time.deltaTime;
+            controller.Move(playerVelocity * Time.deltaTime);
+        }
+        else if (stopPlayer)
         {
             controller.Move(Vector3.zero);
-        }
+        } 
         else
         {
             controller.Move(move * Time.deltaTime * playerSpeed);
@@ -61,6 +92,8 @@ public class PlayerController : MonoBehaviour
     {
         stopPlayer = true;
     }
+    
+    
 
     //private void OnControllerColliderHit(ControllerColliderHit hit)
     //{
