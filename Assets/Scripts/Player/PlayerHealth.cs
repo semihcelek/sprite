@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -7,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     private int maxHealth = 100;
     private int health;
-
+    private IDamagable _damagable;
 
     public delegate void PlayerAction();
     public static event PlayerAction onDie;
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = maxHealth;
         onUpdateHealthGui(health);
+        _damagable = GetComponent<IDamagable>();
     }
 
 
@@ -32,16 +34,10 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
             Die();
     }
-
+    
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.transform.tag == "Obstacle")
-        {
-            TakeDamage(10);
-            Destroy(hit.gameObject);
-            //Debug.Log(health);
-
-        }
+        TakeDamage(_damagable.HandleHit(hit));
     }
     private void Die()
     {
