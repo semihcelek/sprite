@@ -6,7 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     private Animator playerAnimator;
     private CharacterController charController;
-    private UserInput userInputs;
+    private SwipeControls userInputs;
 
     private int isRunningHash;
     private int isDeadHash;
@@ -18,7 +18,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         playerAnimator = GetComponent<Animator>();
         charController = GetComponent<CharacterController>();
-        userInputs = GetComponent<UserInput>();
+        userInputs = GetComponent<SwipeControls>();
 
         isRunningHash = Animator.StringToHash("isRunning");
         isDeadHash = Animator.StringToHash("isDead");
@@ -34,14 +34,18 @@ public class PlayerAnimation : MonoBehaviour
     private void Update()
     {
 
-        if (userInputs.Vertical== 1&&!charController.isGrounded)
+        if(userInputs.Vertical== 1
+            &&!charController.isGrounded
+            )
         {
-            playerAnimator.SetBool(isRunningHash, false);
+            //Debug.Log("jump");
+            //playerAnimator.SetBool(isRunningHash, false);
             playerAnimator.SetBool(isJumpedHash, true);
         } else
         {
+            //Debug.Log("run");
             playerAnimator.SetBool(isJumpedHash, false);
-            playerAnimator.SetBool(isRunningHash, true);
+            //playerAnimator.SetBool(isRunningHash, true);
         }
 
     }
