@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,22 +17,26 @@ public class PlayerScore : MonoBehaviour
 
     private void IncreaseScore(int point)
     {
-        //collect coins
         score+=point;
         onUpdateScore(score);
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    // private void OnControllerColliderHit(ControllerColliderHit hit)
+    // {
+    //     if(hit.transform.tag=="Score")
+    //     {
+    //         IncreaseScore(20);
+    //         Destroy(hit.gameObject);
+    //     }
+    // }
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(hit.transform.tag=="Score")
+        if(other.CompareTag("Score"))
         {
-            Debug.Log("score is collided " + score);
-
-
             IncreaseScore(20);
-            Destroy(hit.gameObject);
-
-        }
+            Destroy(other.gameObject);
+        }    
     }
 }
 
