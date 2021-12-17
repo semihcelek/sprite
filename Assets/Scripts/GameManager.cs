@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static bool created = false;
-    public enum GameState {Idle, MainMenu, Level, IsGameOver};
+    public enum GameState {Idle, MainMenu, Level, IsGameOver, IsFinish};
     // Start is called before the first frame update
 
     public static GameState game;
@@ -66,7 +66,13 @@ public class GameManager : MonoBehaviour
             case GameState.IsGameOver:
                 //Debug.Log("Game over");
                 Time.timeScale = 0;
-                currentScene = "gameover";
+                currentScene = "GameOver";
+                //StartCoroutine(StopTheGame());
+                break;
+            case GameState.IsFinish:
+                //Debug.Log("Game over");
+                Time.timeScale = 0;
+                currentScene = "IsFinish";
                 //StartCoroutine(StopTheGame());
                 break;
 

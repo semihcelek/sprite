@@ -5,6 +5,7 @@ using UnityEngine;
 public class UiManager : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject gameFinishedPanel;
 
 
     private void Update()
@@ -13,10 +14,19 @@ public class UiManager : MonoBehaviour
         {
             ActivatGameOverPanel();
         }
+
+        if (GameManager.game == GameManager.GameState.IsFinish)
+        {
+            ActivatGameFinishPanel();
+        }
     }
 
     public void ActivatGameOverPanel()
     {
         gameOverPanel.SetActive(true);
+    }
+    public void ActivatGameFinishPanel()
+    {
+        gameFinishedPanel.SetActive(true);
     }
 }
