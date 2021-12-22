@@ -1,16 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
 public class PlatformManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] platformPrefabs;
     [SerializeField] private float tileLenght=60;
-    private List<GameObject> activeTiles = new List<GameObject>();
-
+    private List<GameObject> _activeTiles = new List<GameObject>();
+    
     private Transform PlayerPosition;
     private float zOffset=0;
+    private ObjectPool<GameObject> _pool;
 
+
+    private void Awake()
+    {
+        _pool = new ObjectPool<GameObject>(CreateGameObject);
+    }
+
+    private GameObject CreateGameObject()
+    {
+        GameObject tile = Instantiate(platformPrefabs[Random.Range(0, platformPrefabs.Length)], new Vector3(0, -8, 0),
+            Quaternion.Euler(0, 90, 0));
+        tile.SetActive(false);
+        return tile;
+    }
 
     private void Start()
     {
@@ -38,13 +55,13 @@ public class PlatformManager : MonoBehaviour
     {
        GameObject tile = Instantiate(platformPrefabs[tileIndex], new Vector3(0,-8, 1 * zOffset) , Quaternion.Euler(0,90,0));
         zOffset += tileLenght;
-        activeTiles.Add(tile);
+        _activeTiles.Add(tile);
 
     }
 
     private void DeleteTile()
     {
-        Destroy(activeTiles[0]);
-        activeTiles.RemoveAt(0);
+        Destroy(_activeTiles[0]);
+        _activeTiles.RemoveAt(0);
     }
 }
