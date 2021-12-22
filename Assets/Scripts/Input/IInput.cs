@@ -1,4 +1,4 @@
-namespace Player
+namespace Sprinter.Input
 {
     public interface IInput
     {

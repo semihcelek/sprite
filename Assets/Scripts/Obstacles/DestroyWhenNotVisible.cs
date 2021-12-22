@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyWhenNotVisible : MonoBehaviour
+namespace Sprinter.Obstacles
 {
-    private Transform playerPosition;
-    [SerializeField] float destoryDistance=60;
-    private void Awake()
+    public class DestroyWhenNotVisible : MonoBehaviour
     {
-        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    private void Update()
-    {
-        if(playerPosition.position.z>gameObject.transform.position.z+destoryDistance)
+        private Transform playerPosition;
+        [SerializeField] float destoryDistance=60;
+        private void Awake()
         {
-            Destroy(gameObject);
-            //Debug.Log("Object is destroyed");
+            playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         }
+
+        private void Update()
+        {
+            if(playerPosition.position.z>gameObject.transform.position.z+destoryDistance)
+            {
+                Destroy(gameObject);
+                //Debug.Log("Object is destroyed");
+            }
+        }
+
+
+        //void OnBecameInvisible()
+        //{
+        //    Destroy(gameObject);
+
+
+        //}
     }
-
-
-    //void OnBecameInvisible()
-    //{
-    //    Destroy(gameObject);
-
-
-    //}
 }

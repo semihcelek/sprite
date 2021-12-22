@@ -1,7 +1,7 @@
 using GoogleMobileAds.Api;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Sprinter.GoogleAds
 {
     public class GoogleAdMobRequestBannerAd : MonoBehaviour
     {

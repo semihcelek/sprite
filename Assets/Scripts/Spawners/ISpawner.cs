@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace Spawners
+namespace Sprinter.Spawners
 {
     public interface ISpawner
     {

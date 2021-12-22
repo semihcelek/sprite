@@ -1,27 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Spawners;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+namespace Sprinter.Spawners
 {
-    private ISpawner _spawner;
-    private void Awake()
+    public class Spawner : MonoBehaviour
     {
-        _spawner = GetComponent<ISpawner>();
-    }
-    void Start()
-    {
+        private ISpawner _spawner;
+        private void Awake()
+        {
+            _spawner = GetComponent<ISpawner>();
+        }
+        void Start()
+        {
 
-        StartCoroutine(_spawner.Spawn());
-    }
+            StartCoroutine(_spawner.Spawn());
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
+        }
+    
+    
     }
-    
-    
 }

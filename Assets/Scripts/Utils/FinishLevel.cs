@@ -1,8 +1,7 @@
-using System;
-using Unity.VisualScripting;
+using Sprinter.Game;
 using UnityEngine;
 
-namespace Utils
+namespace Sprinter.Utils
 {
     public class FinishLevel : MonoBehaviour
     {

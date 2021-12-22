@@ -1,32 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sprinter.Game;
 using UnityEngine;
 
-public class UiManager : MonoBehaviour
+namespace Sprinter.Gui
 {
-    public GameObject gameOverPanel;
-    public GameObject gameFinishedPanel;
-
-
-    private void Update()
+    public class UiManager : MonoBehaviour
     {
-        if(GameManager.game==GameManager.GameState.IsGameOver)
+        public GameObject gameOverPanel;
+        public GameObject gameFinishedPanel;
+
+
+        private void Update()
         {
-            ActivatGameOverPanel();
+            if(GameManager.game==GameManager.GameState.IsGameOver)
+            {
+                ActivatGameOverPanel();
+            }
+
+            if (GameManager.game == GameManager.GameState.IsFinish)
+            {
+                ActivatGameFinishPanel();
+            }
         }
 
-        if (GameManager.game == GameManager.GameState.IsFinish)
+        public void ActivatGameOverPanel()
         {
-            ActivatGameFinishPanel();
+            gameOverPanel.SetActive(true);
         }
-    }
-
-    public void ActivatGameOverPanel()
-    {
-        gameOverPanel.SetActive(true);
-    }
-    public void ActivatGameFinishPanel()
-    {
-        gameFinishedPanel.SetActive(true);
+        public void ActivatGameFinishPanel()
+        {
+            gameFinishedPanel.SetActive(true);
+        }
     }
 }

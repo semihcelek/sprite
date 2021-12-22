@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Spawners
+namespace Sprinter.Spawners
 {
     public class FallingCubeSpawner : MonoBehaviour, ISpawner
     {

@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using Sprinter.Game;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class UIEvents : MonoBehaviour
+namespace Sprinter.Gui
 {
-    // Start is called before the first frame update
-    public void StartGame()
+    public class UIEvents : MonoBehaviour
     {
-        //SceneManager.LoadScene("Level");
-        GameManager.game = GameManager.GameState.LevelOne;
-    }
+        // Start is called before the first frame update
+        public void StartGame()
+        {
+            //SceneManager.LoadScene("Level");
+            GameManager.game = GameManager.GameState.LevelOne;
+        }
 
-    public void ReturnMainMenu()
-    {
-        GameManager.game = GameManager.GameState.MainMenu;
-    }
+        public void ReturnMainMenu()
+        {
+            GameManager.game = GameManager.GameState.MainMenu;
+        }
 
-    public void GoLevelTwo()
-    {
-        GameManager.game = GameManager.GameState.LevelTwo;
-    }
+        public void GoLevelTwo()
+        {
+            GameManager.game = GameManager.GameState.LevelTwo;
+        }
 
+    }
 }

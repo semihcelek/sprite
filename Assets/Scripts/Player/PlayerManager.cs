@@ -1,29 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+namespace Sprinter.Player
 {
-     public GameObject[] playerPrefabs;
-    public delegate int PlayerSelectionAction();
-    public static PlayerSelectionAction onPlayerSelect;
-
-    public enum PlayerNames
+    public class PlayerManager : MonoBehaviour
     {
-        Pearl=0,
-        Jasper=1
-    };
+        public GameObject[] playerPrefabs;
+        public delegate int PlayerSelectionAction();
+        public static PlayerSelectionAction onPlayerSelect;
+
+        public enum PlayerNames
+        {
+            Pearl=0,
+            Jasper=1
+        };
 
 
-    private void Awake()
-    {
-        if (onPlayerSelect != null)
+        private void Awake()
         {
-            Instantiate(playerPrefabs[onPlayerSelect()], transform.position, transform.rotation);
-        }
-        else
-        {
-            Instantiate(playerPrefabs[0], transform.position, transform.rotation);
+            if (onPlayerSelect != null)
+            {
+                Instantiate(playerPrefabs[onPlayerSelect()], transform.position, transform.rotation);
+            }
+            else
+            {
+                Instantiate(playerPrefabs[0], transform.position, transform.rotation);
+            }
         }
     }
 }

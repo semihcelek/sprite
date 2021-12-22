@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Player
+namespace Sprinter.Input
 {
     public class SwipteTest : MonoBehaviour, IInput
     {
@@ -24,14 +23,14 @@ namespace Player
 
         private void Update()
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase==TouchPhase.Began)
+            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase==TouchPhase.Began)
             {
-                _startPosition = Input.GetTouch(0).position;
+                _startPosition = UnityEngine.Input.GetTouch(0).position;
             }
 
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                _currentPosition = Input.GetTouch(0).position;
+                _currentPosition = UnityEngine.Input.GetTouch(0).position;
                 _deltaPositionDividedByScreenRes = (_currentPosition - _startPosition )/ _currentScreenRes*20 ;
                 // Horizontal = _deltaPositionDividedByScreenRes.x;
                 // Vertical = _deltaPositionDividedByScreenRes.y;
@@ -47,13 +46,13 @@ namespace Player
                 // Debug.Log(Horizontal);
             }
             
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 Horizontal = 0;
                 Vertical = 0;
             }
 
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
+            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Stationary)
             {
                 // Horizontal = Mathf.Clamp(_deltaPositionDividedByScreenRes.x,-2,2);
                 // Vertical = Mathf.Clamp( _deltaPositionDividedByScreenRes.y,-2,2);

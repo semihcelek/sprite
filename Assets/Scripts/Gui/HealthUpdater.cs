@@ -1,21 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Sprinter.Player.PlayerHealth;
 using TMPro;
+using UnityEngine;
 
-public class HealthUpdater : MonoBehaviour
+namespace Sprinter.Gui
 {
-    [SerializeField] private TMP_Text healthText;
-    // Start is called before the first frame update
-    private void Awake()
+    public class HealthUpdater : MonoBehaviour
     {
+        [SerializeField] private TMP_Text healthText;
+        // Start is called before the first frame update
+        private void Awake()
+        {
 
-        healthText.text = "0";
-        PlayerHealth.onUpdateHealthGui += UpdateHealthGui;
-    }
+            healthText.text = "0";
+            PlayerHealth.onUpdateHealthGui += UpdateHealthGui;
+        }
 
-    private void UpdateHealthGui(int score)
-    {
-        healthText.text = score.ToString();
+        private void UpdateHealthGui(int score)
+        {
+            healthText.text = score.ToString();
+        }
     }
 }

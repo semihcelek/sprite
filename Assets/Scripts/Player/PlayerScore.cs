@@ -1,42 +1,41 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PlayerScore : MonoBehaviour
+namespace Sprinter.Player
 {
-    public int score { get; private set; }
-
-    public delegate void UpdateGui(int score);
-    public static event UpdateGui onUpdateScore; 
-    private void Awake()
+    public class PlayerScore : MonoBehaviour
     {
-        score = 0;
-    }
+        public int score { get; private set; }
 
-    private void IncreaseScore(int point)
-    {
-        score+=point;
-        onUpdateScore(score);
-    }
-
-    // private void OnControllerColliderHit(ControllerColliderHit hit)
-    // {
-    //     if(hit.transform.tag=="Score")
-    //     {
-    //         IncreaseScore(20);
-    //         Destroy(hit.gameObject);
-    //     }
-    // }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Score"))
+        public delegate void UpdateGui(int score);
+        public static event UpdateGui onUpdateScore; 
+        private void Awake()
         {
-            IncreaseScore(20);
-            Destroy(other.gameObject);
-        }    
+            score = 0;
+        }
+
+        private void IncreaseScore(int point)
+        {
+            score+=point;
+            onUpdateScore(score);
+        }
+
+        // private void OnControllerColliderHit(ControllerColliderHit hit)
+        // {
+        //     if(hit.transform.tag=="Score")
+        //     {
+        //         IncreaseScore(20);
+        //         Destroy(hit.gameObject);
+        //     }
+        // }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.CompareTag("Score"))
+            {
+                IncreaseScore(20);
+                Destroy(other.gameObject);
+            }    
+        }
     }
 }
 

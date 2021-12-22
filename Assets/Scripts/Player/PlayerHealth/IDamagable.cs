@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace Sprinter.Player.PlayerHealth
 {
     public interface IDamagable
     {
