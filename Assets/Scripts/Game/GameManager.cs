@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static bool created = false;
-    public enum GameState {Idle, MainMenu, Level, IsGameOver, IsFinish};
+    public enum GameState {Idle, MainMenu, LevelOne,LevelTwo, IsGameOver, IsFinish};
     // Start is called before the first frame update
 
     public static GameState game;
@@ -53,13 +53,23 @@ public class GameManager : MonoBehaviour
                 }
                 break;
 
-            case GameState.Level:
+            case GameState.LevelOne:
                 //Debug.Log("Level");
                 if (!currentScene.Equals("Level"))
                 {
                     Time.timeScale = 1;
                     SceneManager.LoadScene("Level");
                     currentScene = "Level";
+                }
+                break;
+            
+            case GameState.LevelTwo:
+                //Debug.Log("Level");
+                if (!currentScene.Equals("Level2"))
+                {
+                    Time.timeScale = 1;
+                    SceneManager.LoadScene("Level2");
+                    currentScene = "Level2";
                 }
                 break;
 
