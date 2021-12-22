@@ -12,6 +12,10 @@
 
 .DS_Store
 Assets/TextMesh\ Pro
+/dist
+/Assets/GoogleMobileAds/
+/Assets/Plugins/Android/
+/Assets/Plugins/IOS/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
