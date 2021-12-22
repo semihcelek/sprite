@@ -13,15 +13,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.0f;
     private float gravityValue = -9.81f;
     //private UserInput userInput;
-    private SwipeControls userInput;
+    // private SwipeControls userInput;
     private bool stopPlayer = false;
     private bool isPlayerPushed = false;
+    private IInput _input;
 
 
 
     private void Awake()
     {
-        userInput = GetComponent<SwipeControls>();
+        // userInput = GetComponent<SwipeControls>();
+        _input = GetComponent<IInput>();
         controller = gameObject.GetComponent<CharacterController>();
         PlayerHealth.onStopMovement += StopPlayerMove;
         WallDamage.onPushCharacter += PushCharacter;
@@ -59,14 +61,14 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector3 move = new Vector3(userInput.Horizontal, 0, playerSpeed);
+        Vector3 move = new Vector3(_input.Horizontal, 0, playerSpeed);
 
         if (move != Vector3.zero)
         {
            gameObject.transform.forward = move;
         }
 
-        if (userInput.Vertical== 1 && groundedPlayer)
+        if (_input.Vertical== 1 && groundedPlayer)
         {
             playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
         }
@@ -87,6 +89,9 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y += gravityValue * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
         }
+        
+        // Debug.Log("hori" + _input.Horizontal);
+        // Debug.Log( "ver " + _input.Vertical);
     }
     public void StopPlayerMove()
     {

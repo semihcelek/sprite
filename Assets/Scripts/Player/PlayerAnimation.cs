@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator playerAnimator;
     private CharacterController charController;
-    private SwipeControls userInputs;
+    // private SwipeControls userInputs;
 
     private int isRunningHash;
     private int isDeadHash;
     private int isJumpedHash;
+    private IInput _input;
 
    
 
@@ -18,12 +20,13 @@ public class PlayerAnimation : MonoBehaviour
     {
         playerAnimator = GetComponent<Animator>();
         charController = GetComponent<CharacterController>();
-        userInputs = GetComponent<SwipeControls>();
+        // userInputs = GetComponent<SwipeControls>();
 
         isRunningHash = Animator.StringToHash("isRunning");
         isDeadHash = Animator.StringToHash("isDead");
         isJumpedHash = Animator.StringToHash("isJumped");
 
+        _input = GetComponent<IInput>();
         PlayerHealth.onDie += OnDieAnimation;
     }
     private void OnDisable()
@@ -33,28 +36,31 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-
-        if(userInputs.Vertical== 1
-            &&!charController.isGrounded
-            )
+        
+       
+        
+        if(_input.Vertical>= 1f &&!charController.isGrounded)
         {
             //Debug.Log("jump");
-            //playerAnimator.SetBool(isRunningHash, false);
-            playerAnimator.SetBool(isJumpedHash, true);
+            // playerAnimator.SetBool(isRunningHash, false);
+            // playerAnimator.SetBool(isJumpedHash, true);
+            playerAnimator.SetTrigger(isJumpedHash);
         } else
         {
             //Debug.Log("run");
-            playerAnimator.SetBool(isJumpedHash, false);
-            //playerAnimator.SetBool(isRunningHash, true);
+            // playerAnimator.SetBool(isJumpedHash, false);
+            playerAnimator.SetBool(isRunningHash, true);
         }
+        
 
     }
 
     private void OnDieAnimation()
     {
-        playerAnimator.SetBool(isJumpedHash, false);
-        playerAnimator.SetBool(isRunningHash, false);
-        playerAnimator.SetBool(isDeadHash, true);
+        // playerAnimator.SetBool(isJumpedHash, false);
+        // playerAnimator.SetBool(isRunningHash, false);
+        // playerAnimator.SetBool(isDeadHash, true);
+        playerAnimator.SetTrigger(isDeadHash);
     }
 
 }
