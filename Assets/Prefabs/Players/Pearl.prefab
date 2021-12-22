@@ -1845,7 +1845,6 @@ GameObject:
   - component: {fileID: 6029396660582731733}
   - component: {fileID: 6876382556995268924}
   - component: {fileID: 6876382556995268923}
-  - component: {fileID: 4219945032193548170}
   - component: {fileID: 316431565538001308}
   - component: {fileID: 5726479838081418195}
   - component: {fileID: 8470654052283940026}
@@ -1924,7 +1923,7 @@ Animator:
   m_GameObject: {fileID: 6876382556995268925}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 988733b4a0aa94882bf4fd8e7c0e8b22, type: 2}
+  m_Controller: {fileID: 22100000, guid: d320ce611164b469fb2fbf141c3004c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1961,21 +1960,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 2.5
   jumpHeight: 1.2
---- !u!114 &4219945032193548170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6876382556995268925}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f509d104a95a43f28e58d23be1ef1b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeRange: 50
-  tapRange: 10
-  speedModifier: 0.01
 --- !u!114 &316431565538001308
 MonoBehaviour:
   m_ObjectHideFlags: 0

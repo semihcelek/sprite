@@ -1618,11 +1618,10 @@ GameObject:
   - component: {fileID: 2082536495120248934}
   - component: {fileID: -142287170807532270}
   - component: {fileID: 6497682818275413197}
-  - component: {fileID: 8316209033843264767}
-  - component: {fileID: 1789168488366770939}
   - component: {fileID: 4507423898420254073}
   - component: {fileID: 2276631654309860102}
   - component: {fileID: 5971369505479752686}
+  - component: {fileID: 8138366404252617756}
   m_Layer: 0
   m_Name: Jasper
   m_TagString: Player
@@ -1717,35 +1716,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3424f40e326c4d2388066a95bdf2871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8316209033843264767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6091952492772863305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f509d104a95a43f28e58d23be1ef1b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeRange: 100
-  tapRange: 10
-  speedModifier: 1
---- !u!114 &1789168488366770939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6091952492772863305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa6df5cb774c476a9d3cce29b2b2e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeRange: 50
-  tapRange: 10
 --- !u!114 &4507423898420254073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,6 +1754,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePoint: 10
   damagerPrefab: {fileID: 6889675932585362570, guid: d8a5d65fe34f0473f8982a243f9ec3d9, type: 3}
+--- !u!114 &8138366404252617756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091952492772863305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa6df5cb774c476a9d3cce29b2b2e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeRange: 50
+  tapRange: 10
 --- !u!1 &6207633383749400941
 GameObject:
   m_ObjectHideFlags: 0
