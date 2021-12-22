@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PearlOverride
+  m_Controller: {fileID: 9100000, guid: ee4e47fc03c24431493219bee0235f57, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5b1dd4c6f6e444fbdb19992df0b557af, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1a77972f2007242ea8e2e1660b7c871a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: efb6749eb4dff4d7fb02ad054ba54d75, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aa1e05fda67ae4868a7dafcbd2f48229, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 62da35926d1a846b2b33393d3a69b1dc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 47c76894959d443c4ae66ae75c657e74, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 25b5afa2f9a234ac8b819870c2c2ae00, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 87c6b53a781d844d287d444334095f32, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f7d7d6eb27ecc4bbf87614117260cf67, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fa2a5d033eb4c47498b7f458b8dd221e, type: 2}
