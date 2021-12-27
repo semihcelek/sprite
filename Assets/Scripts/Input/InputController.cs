@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Sprinter.Input
+namespace SemihCelek.Sprinter.Input
 {
-    public class UserInput : MonoBehaviour, IInput
+    public class UserInputController : MonoBehaviour, IInputController
     {
         public float Horizontal { get; private set; }
         public float Vertical { get; private set; }
