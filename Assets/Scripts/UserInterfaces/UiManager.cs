@@ -1,22 +1,23 @@
-using Sprinter.Game;
+using SemihCelek.Sprinter.Game;
 using UnityEngine;
 
-namespace Sprinter.Gui
+namespace SemihCelek.Sprinter.UserInterfaces
 {
     public class UiManager : MonoBehaviour
     {
-        public GameObject gameOverPanel;
-        public GameObject gameFinishedPanel;
-
+        [SerializeField]
+        private GameObject gameOverPanel;
+        [SerializeField]
+        private GameObject gameFinishedPanel;
 
         private void Update()
         {
-            if(GameManager.game==GameManager.GameState.IsGameOver)
+            if (GameManager.Game == GameManager.GameState.GameOver)
             {
                 ActivatGameOverPanel();
             }
 
-            if (GameManager.game == GameManager.GameState.IsFinish)
+            if (GameManager.Game == GameManager.GameState.Finish)
             {
                 ActivatGameFinishPanel();
             }
@@ -26,6 +27,7 @@ namespace Sprinter.Gui
         {
             gameOverPanel.SetActive(true);
         }
+
         public void ActivatGameFinishPanel()
         {
             gameFinishedPanel.SetActive(true);

@@ -1,8 +1,8 @@
 namespace SemihCelek.Sprinter.Input
 {
-    public interface IInput
+    public interface IInputController
     {
-        float Horizontal { get; } 
+        float Horizontal { get; }
         float Vertical { get; }
     }
 }

@@ -1,31 +1,25 @@
 using UnityEngine;
 
-namespace Sprinter.Obstacles
+namespace SemihCelek.Sprinter.Obstacles
 {
     public class DestroyWhenNotVisible : MonoBehaviour
     {
-        private Transform playerPosition;
-        [SerializeField] float destoryDistance=60;
+        [SerializeField] 
+        private float destroyGameObjectDistance=60;
+        
+        private Transform _playerPosition;
+
         private void Awake()
         {
-            playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
+            _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
         private void Update()
         {
-            if(playerPosition.position.z>gameObject.transform.position.z+destoryDistance)
+            if(_playerPosition.position.z>gameObject.transform.position.z+destroyGameObjectDistance)
             {
                 Destroy(gameObject);
-                //Debug.Log("Object is destroyed");
             }
         }
-
-
-        //void OnBecameInvisible()
-        //{
-        //    Destroy(gameObject);
-
-
-        //}
     }
 }

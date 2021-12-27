@@ -1,18 +1,15 @@
 using GoogleMobileAds.Api;
 using UnityEngine;
 
-namespace Sprinter.GoogleAds
+namespace SemihCelek.Sprinter.GoogleAds
 {
     public class GoogleAdMobRequestBannerAd : MonoBehaviour
     {
-        private BannerView bannerView;
-            
+        private BannerView _bannerView;
+
         public void Start()
         {
-            // Initialize the Google Mobile Ads SDK.
-            // MobileAds.Initialize(initStatus => { });
-
-            this.RequestBanner();
+            RequestBanner();
         }
 
         private void RequestBanner()
@@ -25,21 +22,19 @@ namespace Sprinter.GoogleAds
             string adUnitId = "unexpected_platform";
 #endif
 
-            if (bannerView != null)
+            if (_bannerView != null)
             {
-                bannerView.Destroy();
+                _bannerView.Destroy();
             }
-            
-            // Create a 320x50 banner at the top of the screen.
-            this.bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
-            
-            
-            bannerView.LoadAd(CreateAdRequest());
+
+            _bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+
+            _bannerView.LoadAd(CreateAdRequest());
         }
+
         private AdRequest CreateAdRequest()
         {
             return new AdRequest.Builder()
-                // .AddKeyword()
                 .Build();
         }
     }

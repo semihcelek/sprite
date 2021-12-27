@@ -16,6 +16,7 @@ Assets/TextMesh\ Pro
 /Assets/GoogleMobileAds/
 /Assets/Plugins/Android/
 /Assets/Plugins/IOS/
+.env
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

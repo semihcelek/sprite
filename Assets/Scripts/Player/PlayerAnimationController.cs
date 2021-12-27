@@ -3,30 +3,31 @@ using UnityEngine;
 
 namespace SemihCelek.Sprinter.Player
 {
-    public class PlayerAnimation : MonoBehaviour
+    public class PlayerAnimationController : MonoBehaviour
     {
         private Animator _playerAnimator;
-        private CharacterController _charController;
+        private CharacterController _characterController;
 
         private int _isRunningHash;
         private int _isDeadHash;
         private int _isJumpedHash;
-       
+
         private IInputController _inputController;
-        
+
         private void Awake()
         {
             _playerAnimator = GetComponent<Animator>();
-            _charController = GetComponent<CharacterController>();
+            _characterController = GetComponent<CharacterController>();
 
             _isRunningHash = Animator.StringToHash("isRunning");
             _isDeadHash = Animator.StringToHash("isDead");
             _isJumpedHash = Animator.StringToHash("isJumped");
 
             _inputController = GetComponent<IInputController>();
-            
+
             PlayerHealth.PlayerHealth.OnDie += OnDieAnimation;
         }
+
         private void OnDestroy()
         {
             PlayerHealth.PlayerHealth.OnDie -= OnDieAnimation;
@@ -34,14 +35,16 @@ namespace SemihCelek.Sprinter.Player
 
         private void Update()
         {
-            if(_inputController.Vertical>= 1f &&!_charController.isGrounded)
+            if (_inputController.Vertical >= 1f && !_characterController.isGrounded)
             {
                 _playerAnimator.SetTrigger(_isJumpedHash);
-            } else
+            }
+            else
             {
                 _playerAnimator.SetBool(_isRunningHash, true);
             }
         }
+
         private void OnDieAnimation()
         {
             _playerAnimator.SetTrigger(_isDeadHash);

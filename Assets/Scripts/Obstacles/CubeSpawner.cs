@@ -1,30 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Sprinter.Obstacles
+namespace SemihCelek.Sprinter.Obstacles
 {
     public class CubeSpawner : MonoBehaviour
     {
-        public GameObject cubeToSpawn;
-        public float minWait = 0.5f;
-        public float maxWait = 4f;
-        private Vector3 dimentionsOfSpawnerArea;
+        [SerializeField]
+        private GameObject cubeToSpawn;
+        [SerializeField]
+        private float minWait = 0.5f;
+        [SerializeField]
+        private float maxWait = 4f;
 
-        //private MeshRenderer renderer; //in order to get the size of the size of mesh
+        private Vector3 _dimensionsOfSpawnerArea;
 
-        // Start is called before the first frame update
         void Start()
         {
-            dimentionsOfSpawnerArea = new Vector3(3, 0, 30); //size of the tile on renderer.
+            _dimensionsOfSpawnerArea = new Vector3(3, 0, 30);
             StartCoroutine(SpawnCubes());
-     
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
         private IEnumerator SpawnCubes()
         {
             while (true)
@@ -32,16 +27,13 @@ namespace Sprinter.Obstacles
                 yield return new WaitForSeconds(Random.Range(minWait, maxWait));
 
                 GameObject cube = Instantiate(cubeToSpawn, RandomizeSpawnPositionInMesh(), transform.rotation);
-                //Debug.Log("spawning");
             }
         }
 
         private Vector3 RandomizeSpawnPositionInMesh()
         {
-        
-            return new Vector3(transform.position.x+Random.Range(-3, dimentionsOfSpawnerArea.x), transform.position.y, transform.position.z+ Random.Range(-30, dimentionsOfSpawnerArea.z));
-
+            return new Vector3(transform.position.x + Random.Range(-3, _dimensionsOfSpawnerArea.x),
+                transform.position.y, transform.position.z + Random.Range(-30, _dimensionsOfSpawnerArea.z));
         }
-
     }
 }

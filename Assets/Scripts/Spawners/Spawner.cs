@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Sprinter.Spawners
+namespace SemihCelek.Sprinter.Spawners
 {
     public class Spawner : MonoBehaviour
     {
@@ -11,16 +11,7 @@ namespace Sprinter.Spawners
         }
         void Start()
         {
-
-            StartCoroutine(_spawner.Spawn());
+            StartCoroutine(_spawner.SpawnCoroutine());
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-    
-    
     }
 }

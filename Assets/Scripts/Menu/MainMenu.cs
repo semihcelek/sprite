@@ -1,48 +1,53 @@
-using Sprinter.Player;
+using System;
+using SemihCelek.Sprinter.Player;
 using UnityEngine;
 
-namespace Sprinter.Menu
+namespace SemihCelek.Sprinter.Menu
 {
     public class MainMenu : MonoBehaviour
     {
         [SerializeField]
         private GameObject[] playerPrefabs;
-        private int playerIndex;
+        private GameObject _selectedCharacter;
+       
+        private int _playerIndex;
 
         private void Awake()
         {
-            playerIndex = 0;
-            PlayerManager.onPlayerSelect += ReturnSelectedCharacter;
-            CharacterOnScreen(playerIndex);
-
+            _playerIndex = 0;
+            PlayerManager.OnPlayerSelect += GetSelectedCharacter;
+            DisplayCharacter(_playerIndex);
         }
 
-        private void CharacterOnScreen(int nextChar)
+        private void OnDestroy()
         {
-            GameObject character = Instantiate(playerPrefabs[nextChar],new Vector3(0,0,-5.2f), Quaternion.Euler(0,180,0));
-            playerIndex = nextChar;
+            PlayerManager.OnPlayerSelect -= GetSelectedCharacter;
         }
 
-        public int ReturnSelectedCharacter()
+        private void DisplayCharacter(int nextChar)
         {
-            return playerIndex;
+            _selectedCharacter = Instantiate(playerPrefabs[nextChar],new Vector3(0,0,-5.2f), Quaternion.Euler(0,180,0));
+            _playerIndex = nextChar;
         }
 
-        public void NextChar()
+        private int GetSelectedCharacter()
         {
-            GameObject currentPlayer = GameObject.FindGameObjectWithTag("MenuChar");
-            playerIndex = Mathf.Clamp(playerIndex + 1, 0, playerPrefabs.Length-1);
-            Destroy(currentPlayer);
-
-            CharacterOnScreen(playerIndex);
+            return _playerIndex;
         }
-        public void PreviousChar()
-        {
-            GameObject currentPlayer = GameObject.FindGameObjectWithTag("MenuChar");
-            playerIndex = Mathf.Clamp(playerIndex - 1, 0, playerPrefabs.Length);
-            Destroy(currentPlayer);
 
-            CharacterOnScreen(playerIndex);
+        public void DisplayNextCharacter()
+        {
+            _playerIndex = Mathf.Clamp(_playerIndex + 1, 0, playerPrefabs.Length-1);
+            _selectedCharacter.SetActive(false);
+
+            DisplayCharacter(_playerIndex);
+        }
+        public void DisplayPreviousCharacter()
+        {
+            _playerIndex = Mathf.Clamp(_playerIndex - 1, 0, playerPrefabs.Length);
+            _selectedCharacter.SetActive(false);
+            
+            DisplayCharacter(_playerIndex);
         }
 
     }

@@ -2,17 +2,22 @@ using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Sprinter.Spawners
+namespace SemihCelek.Sprinter.Spawners
 {
     public class FallingCubeSpawner : MonoBehaviour, ISpawner
     {
-        [SerializeField] private GameObject objectPrefab;
-        [SerializeField] private float minWait;
-        [SerializeField] private float maxWait;
-        [SerializeField] private int maxNumberOfCubeToSpwan;
+        [SerializeField]
+        private GameObject objectPrefab;
+        [SerializeField]
+        private float minWait;
+        [SerializeField]
+        private float maxWait;
+        [SerializeField]
+        
+        private int maxNumberOfCubeToSpwan;
+        private int _numberOfObjectSpawned;
 
         private Vector3 _spawnArea;
-        private int _numberOfObjectSpawned;
 
         private void Awake()
         {
@@ -21,7 +26,7 @@ namespace Sprinter.Spawners
         }
 
 
-        public IEnumerator Spawn()
+        public IEnumerator SpawnCoroutine()
         {
             while (_numberOfObjectSpawned < maxNumberOfCubeToSpwan)
             {
@@ -35,7 +40,7 @@ namespace Sprinter.Spawners
         private Vector3 RandomPosition()
         {
             return new Vector3(Random.Range(-_spawnArea.x, _spawnArea.x), Random.Range(-_spawnArea.y, _spawnArea.y),
-                Random.Range(-_spawnArea.z, _spawnArea.z))+transform.position;
+                Random.Range(-_spawnArea.z, _spawnArea.z)) + transform.position;
         }
     }
 }

@@ -1,86 +1,88 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Sprinter.Game
+namespace SemihCelek.Sprinter.Game
 {
     public class GameManager : MonoBehaviour
     {
-        private static bool created = false;
-        public enum GameState {Idle, MainMenu, LevelOne,LevelTwo, IsGameOver, IsFinish};
-        // Start is called before the first frame update
+        private static bool _created = false;
 
-        public static GameState game;
+        public enum GameState
+        {
+            Idle,
+            MainMenu,
+            LevelOne,
+            LevelTwo,
+            GameOver,
+            Finish
+        };
 
-        private string currentScene;
-        //Scene scene = SceneManager.GetActiveScene();
+        public static GameState Game;
+
+        private string _currentScene;
+
         private void Awake()
         {
-
-            // Ensure the script is not deleted while loading.
-            if (!created)
+            if (!_created)
             {
-                DontDestroyOnLoad(this.gameObject);
-                created = true;
+                DontDestroyOnLoad(gameObject);
+                _created = true;
             }
             else
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
-            
-            game = GameState.MainMenu;
-            currentScene = "MainMenu";
+
+            Game = GameState.MainMenu;
+            _currentScene = "MainMenu";
         }
-        // Update is called once per frame
+
         void Update()
         {
-            switch (game)
+            switch (Game)
             {
                 case GameState.MainMenu:
-                    //Debug.Log("main menu");
-                    if (!currentScene.Equals("MainMenu"))
+                    if (!_currentScene.Equals("MainMenu"))
                     {
                         Time.timeScale = 1;
                         SceneManager.LoadScene("MainMenu");
-                        currentScene = "MainMenu";
+                        _currentScene = "MainMenu";
                     }
+
                     break;
 
                 case GameState.LevelOne:
-                    //Debug.Log("Level");
-                    if (!currentScene.Equals("Level"))
+                    if (!_currentScene.Equals("Level"))
                     {
                         Time.timeScale = 1;
                         SceneManager.LoadScene("Level");
-                        currentScene = "Level";
+                        _currentScene = "Level";
                     }
+
                     break;
-            
+
                 case GameState.LevelTwo:
-                    //Debug.Log("Level");
-                    if (!currentScene.Equals("Level2"))
+                    if (!_currentScene.Equals("Level2"))
                     {
                         Time.timeScale = 1;
                         SceneManager.LoadScene("Level2");
-                        currentScene = "Level2";
+                        _currentScene = "Level2";
                     }
+
                     break;
 
-                case GameState.IsGameOver:
-                    //Debug.Log("Game over");
+                case GameState.GameOver:
                     Time.timeScale = 0;
-                    currentScene = "GameOver";
-                    //StartCoroutine(StopTheGame());
+                    _currentScene = "GameOver";
                     break;
-                
-                case GameState.IsFinish:
-                    //Debug.Log("Game over");
+
+                case GameState.Finish:
                     Time.timeScale = 0;
-                    currentScene = "IsFinish";
-                    //StartCoroutine(StopTheGame());
+                    _currentScene = "IsFinish";
                     break;
-                
+
                 default:
-                    game = GameState.Idle;
+                    Game = GameState.Idle;
                     break;
             }
         }

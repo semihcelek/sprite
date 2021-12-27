@@ -1,25 +1,26 @@
 using UnityEngine;
 
-namespace Sprinter.Player
+namespace SemihCelek.Sprinter.Player
 {
     public class PlayerManager : MonoBehaviour
     {
         public GameObject[] playerPrefabs;
+
         public delegate int PlayerSelectionAction();
-        public static PlayerSelectionAction onPlayerSelect;
+
+        public static event PlayerSelectionAction OnPlayerSelect;
 
         public enum PlayerNames
         {
-            Pearl=0,
-            Jasper=1
+            Pearl = 0,
+            Jasper = 1
         };
-
 
         private void Awake()
         {
-            if (onPlayerSelect != null)
+            if (OnPlayerSelect != null)
             {
-                Instantiate(playerPrefabs[onPlayerSelect()], transform.position, transform.rotation);
+                Instantiate(playerPrefabs[OnPlayerSelect()], transform.position, transform.rotation);
             }
             else
             {

@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 55990583}
   - component: {fileID: 55990585}
   - component: {fileID: 55990584}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: FinishedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ GameObject:
   - component: {fileID: 207132580}
   - component: {fileID: 207132579}
   - component: {fileID: 207132578}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: RestartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 223865830}
   - component: {fileID: 223865829}
   - component: {fileID: 223865828}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1209,7 +1209,7 @@ RectTransform:
   - {fileID: 800683174}
   - {fileID: 2023914725}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 407505880}
   - component: {fileID: 407505879}
   - component: {fileID: 407505878}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: NextLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899838059948832755, guid: 259156ad967494b0aa1924e36d45fa8d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 6899838059948832755, guid: 259156ad967494b0aa1924e36d45fa8d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 444805467}
   - component: {fileID: 444805469}
   - component: {fileID: 444805468}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: TabBarPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1984,7 +1984,7 @@ GameObject:
   - component: {fileID: 674329924}
   - component: {fileID: 674329926}
   - component: {fileID: 674329925}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2064,7 +2064,7 @@ GameObject:
   - component: {fileID: 689310195}
   - component: {fileID: 689310197}
   - component: {fileID: 689310196}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2199,7 +2199,7 @@ GameObject:
   - component: {fileID: 702834744}
   - component: {fileID: 702834746}
   - component: {fileID: 702834745}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2428,7 +2428,7 @@ GameObject:
   - component: {fileID: 716796381}
   - component: {fileID: 716796383}
   - component: {fileID: 716796382}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2564,7 +2564,7 @@ GameObject:
   - component: {fileID: 783670270}
   - component: {fileID: 783670269}
   - component: {fileID: 783670268}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: HealthPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2588,7 +2588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -59, y: -72.8}
+  m_AnchoredPosition: {x: -59, y: -72.79999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783670268
@@ -2712,7 +2712,7 @@ GameObject:
   - component: {fileID: 800683174}
   - component: {fileID: 800683176}
   - component: {fileID: 800683175}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2791,7 +2791,7 @@ GameObject:
   - component: {fileID: 842068329}
   - component: {fileID: 842068331}
   - component: {fileID: 842068330}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: 'Health(TMP) '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3130,8 +3130,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -3245,7 +3245,7 @@ GameObject:
   - component: {fileID: 1061977392}
   - component: {fileID: 1061977394}
   - component: {fileID: 1061977393}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Score (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3269,7 +3269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.9, y: -72.8}
+  m_AnchoredPosition: {x: 121.899994, y: -72.79999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1061977393
@@ -3391,7 +3391,7 @@ GameObject:
   - component: {fileID: 1112164852}
   - component: {fileID: 1112164851}
   - component: {fileID: 1112164850}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenutButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3846,7 +3846,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1284912325
 MonoBehaviour:
@@ -3873,7 +3873,7 @@ GameObject:
   - component: {fileID: 1294452858}
   - component: {fileID: 1294452860}
   - component: {fileID: 1294452859}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4257,7 +4257,7 @@ GameObject:
   - component: {fileID: 1603766772}
   - component: {fileID: 1603766771}
   - component: {fileID: 1603766773}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ScorePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4281,7 +4281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 274.3, y: -72.8}
+  m_AnchoredPosition: {x: 274.3, y: -72.79999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1603766771
@@ -4962,7 +4962,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1947419430
 PrefabInstance:
@@ -5056,7 +5056,7 @@ GameObject:
   - component: {fileID: 2023914725}
   - component: {fileID: 2023914724}
   - component: {fileID: 2023914723}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: GameFinishedPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5254,7 +5254,7 @@ GameObject:
   - component: {fileID: 2126295579}
   - component: {fileID: 2126295581}
   - component: {fileID: 2126295580}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5390,7 +5390,7 @@ GameObject:
   - component: {fileID: 2131103189}
   - component: {fileID: 2131103188}
   - component: {fileID: 2131103187}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: MenutButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5640,7 +5640,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 636841826953779452, guid: d8a5d65fe34f0473f8982a243f9ec3d9, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 636841826953779452, guid: d8a5d65fe34f0473f8982a243f9ec3d9, type: 3}
       propertyPath: m_LocalPosition.x

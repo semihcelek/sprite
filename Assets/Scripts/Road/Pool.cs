@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
-namespace Sprinter.Road
+namespace SemihCelek.Sprinter.Road
 {
     public class ReturnToThePool : MonoBehaviour
     {

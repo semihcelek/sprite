@@ -1,12 +1,10 @@
 using UnityEngine;
 
-namespace Sprinter.Player.PlayerHealth
+namespace SemihCelek.Sprinter.Player.PlayerHealth
 {
     public interface IDamagable
-    {
-        public delegate void PlayerMovement();
-        // public static event PlayerMovement pushCharacter;
-
-        public int HandleHit(ControllerColliderHit hit);
+    { 
+        delegate void PlayerMovement();
+        int HandleHit(ControllerColliderHit hit);
     }
 }

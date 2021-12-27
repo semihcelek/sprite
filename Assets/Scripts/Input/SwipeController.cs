@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SemihCelek.Sprinter.Input
 {
-    public class SwipeInputController : MonoBehaviour, IInputController
+    public class SwipeController : MonoBehaviour, IInputController
     {
         public float Horizontal { get; private set; }
         public float Vertical { get; private set; }
@@ -14,11 +14,11 @@ namespace SemihCelek.Sprinter.Input
         private Vector2 _endTouchPosition;
         private bool _stopTouch = false;
 
-        public float swipeRange=50;
-        public float tapRange=10;
+        public float swipeRange = 50;
+        public float tapRange = 10;
 
         private bool enableSlowSwipe = false;
-        
+
         void Update()
         {
             if (!enableSlowSwipe)
@@ -30,6 +30,7 @@ namespace SemihCelek.Sprinter.Input
                 slowSwipe();
             }
         }
+
         public void fastSwipe()
         {
             if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Began)
@@ -44,7 +45,6 @@ namespace SemihCelek.Sprinter.Input
 
                 if (!_stopTouch)
                 {
-
                     if (Distance.x < -swipeRange)
                     {
                         Horizontal = -1;
@@ -65,9 +65,7 @@ namespace SemihCelek.Sprinter.Input
                         Vertical = -1;
                         _stopTouch = true;
                     }
-
                 }
-
             }
 
             if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Ended)
@@ -75,7 +73,6 @@ namespace SemihCelek.Sprinter.Input
                 _stopTouch = false;
                 Horizontal = 0;
                 Vertical = 0;
-                //InputVector = new Vector2(0, 0);
 
                 _endTouchPosition = UnityEngine.Input.GetTouch(0).position;
 
@@ -85,7 +82,6 @@ namespace SemihCelek.Sprinter.Input
                 {
                     tap = true;
                 }
-
             }
         }
 
@@ -94,7 +90,6 @@ namespace SemihCelek.Sprinter.Input
             if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 _startTouchPosition = UnityEngine.Input.GetTouch(0).position;
-
             }
 
             if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Ended)
@@ -126,10 +121,7 @@ namespace SemihCelek.Sprinter.Input
                 {
                     tap = true;
                 }
-
-
             }
-
         }
 
         public void changeMode()
@@ -142,8 +134,6 @@ namespace SemihCelek.Sprinter.Input
             {
                 enableSlowSwipe = false;
             }
-
         }
-
     }
 }

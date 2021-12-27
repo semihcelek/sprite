@@ -1,24 +1,24 @@
 using UnityEngine;
 
-namespace Sprinter.Player.PlayerHealth
+namespace SemihCelek.Sprinter.Player.PlayerHealth
 {
     public class WallDamage : MonoBehaviour, IDamagable
     {
-        [SerializeField] private int damagePoint = 0;
-        [SerializeField] private GameObject damagerPrefab;
+        [SerializeField] 
+        private int damagePoint = 0;
+        [SerializeField] 
+        private GameObject damagerPrefab;
 
-        public static event IDamagable.PlayerMovement onPushCharacter;
-
+        public static event IDamagable.PlayerMovement OnPushCharacter;
         
         public int HandleHit(ControllerColliderHit hit)
         {
             if (hit.gameObject.CompareTag("Damage"))
             {
-
-                if (onPushCharacter != null)
-                    onPushCharacter();
-                // Debug.Log("take damage from wall");
-                // Destroy(hit.gameObject);
+                if (OnPushCharacter != null)
+                {
+                    OnPushCharacter();
+                }
                 return damagePoint;
             }
             return 0;

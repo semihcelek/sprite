@@ -1,39 +1,39 @@
 using System.Collections;
-using Sprinter.Game;
+using SemihCelek.Sprinter.Game;
 using UnityEngine;
 
-namespace Sprinter.Player.PlayerHealth
+namespace SemihCelek.Sprinter.Player.PlayerHealth
 {
     public class PlayerHealth : MonoBehaviour
     {
 
-        private int maxHealth = 100;
-        private int health;
+        private readonly int _maxHealth = 100;
+        private int _health;
         private IDamagable _damagable;
 
         public delegate void PlayerAction();
-        public static event PlayerAction onDie;
-        public static event PlayerAction onStopMovement;
-
+        public static event PlayerAction OnDie;
+        public static event PlayerAction OnStopMovement;
 
         public delegate void PlayerGuiAction(int health);
-        public static event PlayerGuiAction onUpdateHealthGui;
+        public static event PlayerGuiAction OnUpdateHealthGui;
 
 
         private void Awake()
         {
-            health = maxHealth;
-            onUpdateHealthGui(health);
+            _health = _maxHealth;
+            OnUpdateHealthGui(_health);
             _damagable = GetComponent<IDamagable>();
         }
-
-
+        
         private void TakeDamage(int damage)
         {
-            health -= damage;
-            onUpdateHealthGui(health);
-            if (health <= 0)
+            _health -= damage;
+            OnUpdateHealthGui(_health);
+            if (_health <= 0)
+            {
                 Die();
+            }
         }
     
         private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -42,12 +42,15 @@ namespace Sprinter.Player.PlayerHealth
         }
         private void Die()
         {
-            if (onDie!=null)
-                onDie();
+            if (OnDie != null)
+            {
+                OnDie();
+            }
 
-            if (onStopMovement != null)
-                onStopMovement();
-
+            if (OnStopMovement != null)
+            {
+                OnStopMovement();
+            }
             StartCoroutine(waitForDeadAnim());
         }
 
@@ -58,7 +61,7 @@ namespace Sprinter.Player.PlayerHealth
             yield return new WaitForSeconds(3);
 
             //playerAnimator.SetBool(isDeadHash, false);
-            GameManager.game = GameManager.GameState.IsGameOver;
+            GameManager.Game = GameManager.GameState.GameOver;
         }
     }
 }

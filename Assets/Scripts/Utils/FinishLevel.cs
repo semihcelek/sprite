@@ -1,24 +1,15 @@
-using Sprinter.Game;
+using SemihCelek.Sprinter.Game;
 using UnityEngine;
 
-namespace Sprinter.Utils
+namespace SemihCelek.Sprinter.Utils
 {
     public class FinishLevel : MonoBehaviour
     {
-        // private void OnCollisionEnter(Collision collision)
-        // {
-        //     if (collision.gameObject.CompareTag("Player"))
-        //     {
-        //         //finish game
-        //
-        //     }
-        // }
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                GameManager.game = GameManager.GameState.IsFinish;
+                GameManager.Game = GameManager.GameState.Finish;
                 Debug.Log("Game is finished");
             }
         }

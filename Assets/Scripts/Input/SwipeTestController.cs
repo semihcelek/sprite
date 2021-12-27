@@ -5,15 +5,16 @@ using UnityEngine;
 
 namespace SemihCelek.Sprinter.Input
 {
-    public class SwipeTest : MonoBehaviour
+    public class SwipeTestController : MonoBehaviour
     {
         [SerializeField] 
         private float _leftBoundryOnXAxis, _rightBoundryOnXAxis;
+        
         private Transform _cachedTransform;
         private TransformGesture _gesture;
         private TransformGesture.TransformType _transformMask;
-        private Vector3 _targetPosition;
         
+        private Vector3 _targetPosition;
         private Vector3 _lastPosition, _lastScale;
         
         private void Awake()
