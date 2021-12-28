@@ -10,12 +10,6 @@ namespace SemihCelek.Sprinter.Player
 
         public static event PlayerSelectionAction OnPlayerSelect;
 
-        public enum PlayerNames
-        {
-            Pearl = 0,
-            Jasper = 1
-        };
-
         private void Awake()
         {
             if (OnPlayerSelect != null)

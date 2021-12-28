@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SemihCelek.Sprinter
+namespace SemihCelek.Sprinter.Utils
 {
     public class CameraController : MonoBehaviour
     {

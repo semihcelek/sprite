@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 1517485917933549038}
   - component: {fileID: 1517485917933549041}
   - component: {fileID: 1517485917933549040}
+  - component: {fileID: -5220736112887891263}
+  - component: {fileID: 3134428392017178827}
   m_Layer: 0
   m_Name: RotatingObstacleYAxis
-  m_TagString: Damage
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +118,33 @@ MonoBehaviour:
   xRotationSpeed: 0
   yRotationSpeed: 50
   zRotationSpeed: 0
+--- !u!114 &-5220736112887891263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517485917933549043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a83f077ea0484bb3e34d8ce1d1f80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 10
+--- !u!136 &3134428392017178827
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517485917933549043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1517485918356715020
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +159,7 @@ GameObject:
   - component: {fileID: 1517485918356715018}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Damage
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +257,7 @@ GameObject:
   - component: {fileID: 1517485918827396827}
   m_Layer: 0
   m_Name: Cylinder (1)
-  m_TagString: Damage
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

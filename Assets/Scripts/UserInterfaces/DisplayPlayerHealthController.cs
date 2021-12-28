@@ -1,4 +1,4 @@
-using SemihCelek.Sprinter.Player.PlayerHealth;
+using SemihCelek.Sprinter.Player;
 using TMPro;
 using UnityEngine;
 
@@ -12,12 +12,12 @@ namespace SemihCelek.Sprinter.UserInterfaces
         private void Awake()
         {
             healthText.text = "0";
-            PlayerHealth.OnUpdateHealthGui += UiHealthUpdater;
+            PlayerHealthController.OnUpdateHealthGui += UiHealthUpdater;
         }
 
         private void OnDestroy()
         {
-            PlayerHealth.OnUpdateHealthGui -= UiHealthUpdater;
+            PlayerHealthController.OnUpdateHealthGui -= UiHealthUpdater;
         }
 
         private void UiHealthUpdater(int score)

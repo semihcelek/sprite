@@ -25,12 +25,12 @@ namespace SemihCelek.Sprinter.Player
 
             _inputController = GetComponent<IInputController>();
 
-            PlayerHealth.PlayerHealth.OnDie += OnDieAnimation;
+            PlayerHealthController.OnDie += OnDieAnimation;
         }
 
         private void OnDestroy()
         {
-            PlayerHealth.PlayerHealth.OnDie -= OnDieAnimation;
+            PlayerHealthController.OnDie -= OnDieAnimation;
         }
 
         private void Update()

@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 7043238745540455510}
   - component: {fileID: 6233965044188550146}
   - component: {fileID: 864180265122682854}
+  - component: {fileID: 2957630142436941324}
+  - component: {fileID: 3626500289490343577}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Damage
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,4 +129,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b45fded4fcfb443db47e1fd8828011a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destoryDistance: 60
+  destroyGameObjectDistance: 60
+--- !u!114 &2957630142436941324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091624194690527653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a83f077ea0484bb3e34d8ce1d1f80f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 10
+--- !u!65 &3626500289490343577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9091624194690527653}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.03, y: 1.03, z: 1.03}
+  m_Center: {x: 0, y: 0, z: 0}

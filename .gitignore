@@ -16,6 +16,8 @@ Assets/TextMesh\ Pro
 /Assets/GoogleMobileAds/
 /Assets/Plugins/Android/
 /Assets/Plugins/IOS/
+/Assets/Lean/
+/Assets/Lean.meta
 .env
 
 # MemoryCaptures can get excessive in size.

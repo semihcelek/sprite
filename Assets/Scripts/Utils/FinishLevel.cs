@@ -1,4 +1,4 @@
-using SemihCelek.Sprinter.Game;
+using SemihCelek.Sprinter.GameState;
 using UnityEngine;
 
 namespace SemihCelek.Sprinter.Utils
@@ -7,10 +7,11 @@ namespace SemihCelek.Sprinter.Utils
     {
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Player"))
+            bool isPlayer = other.TryGetComponent(out CharacterController characterController);
+
+            if (isPlayer)
             {
-                GameManager.Game = GameManager.GameState.Finish;
-                Debug.Log("Game is finished");
+                GameStateManager.ChangeGameState(GameStateManager.GameState.Finish);
             }
         }
     }

@@ -1,6 +1,5 @@
 using System.Collections;
 using SemihCelek.Sprinter.Input;
-using SemihCelek.Sprinter.Player.PlayerHealth;
 using UnityEngine;
 
 namespace SemihCelek.Sprinter.Player
@@ -26,14 +25,14 @@ namespace SemihCelek.Sprinter.Player
         {
             _inputController = GetComponent<IInputController>();
             _characterController = gameObject.GetComponent<CharacterController>();
-            PlayerHealth.PlayerHealth.OnStopMovement += StopPlayerMove;
-            WallDamage.OnPushCharacter += PushCharacter;
+            PlayerHealthController.OnStopMovement += StopPlayerMove;
+            PlayerHealthController.OnPushPlayerWhenTakesDamage += PushCharacter;
         }
 
         private void OnDestroy()
         {
-            PlayerHealth.PlayerHealth.OnStopMovement -= StopPlayerMove;
-            WallDamage.OnPushCharacter -= PushCharacter;
+            PlayerHealthController.OnStopMovement -= StopPlayerMove;
+            PlayerHealthController.OnPushPlayerWhenTakesDamage -= PushCharacter;
         }
 
         private void PushCharacter()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SemihCelek.Sprinter.Obstacles
+namespace SemihCelek.Sprinter.Utils
 {
     public class DestroyWhenNotVisible : MonoBehaviour
     {
