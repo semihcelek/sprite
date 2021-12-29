@@ -1620,7 +1620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1608035651
 Transform:
   m_ObjectHideFlags: 0
@@ -1680,6 +1680,7 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 563325750642822997, guid: eb73b2c5dd16e49b1a974d8ebed14105, type: 3}
   - {fileID: 7630876783870957569, guid: 78f6de09242704625b915fdd752b837a, type: 3}
+  selectedPlayerIndex: {fileID: 11400000, guid: ebdae2e09e8bf44029b7f6b810d3723e, type: 2}
 --- !u!4 &1656114231
 Transform:
   m_ObjectHideFlags: 0

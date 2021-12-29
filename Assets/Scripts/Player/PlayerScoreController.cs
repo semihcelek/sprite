@@ -1,10 +1,13 @@
+using SemihCelek.Sprinter.ScriptableObjects;
 using UnityEngine;
 
 namespace SemihCelek.Sprinter.Player
 {
     public class PlayerScoreController : MonoBehaviour
     {
-        private int Score { get; set; }
+        // private int Score { get; set; }
+        [SerializeField]
+        private PlayerScoreValue score;
 
         public delegate void UiUpdater(int score);
 
@@ -12,13 +15,13 @@ namespace SemihCelek.Sprinter.Player
 
         private void Awake()
         {
-            Score = 0;
+            score.score = 0;
         }
 
         private void IncreaseScore(int point)
         {
-            Score += point;
-            OnUpdateScore(Score);
+            score.score += point;
+            OnUpdateScore(score.score);
         }
 
         private void OnTriggerEnter(Collider other)

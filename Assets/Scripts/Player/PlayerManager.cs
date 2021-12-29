@@ -1,3 +1,4 @@
+using SemihCelek.Sprinter.ScriptableObjects;
 using UnityEngine;
 
 namespace SemihCelek.Sprinter.Player
@@ -6,19 +7,14 @@ namespace SemihCelek.Sprinter.Player
     {
         public GameObject[] playerPrefabs;
 
-        public delegate int PlayerSelectionAction();
-
-        public static event PlayerSelectionAction OnPlayerSelect;
+        [SerializeField]
+        private SelectedPlayerIndex selectedPlayer;
 
         private void Awake()
         {
-            if (OnPlayerSelect != null)
             {
-                Instantiate(playerPrefabs[OnPlayerSelect()], transform.position, transform.rotation);
-            }
-            else
-            {
-                Instantiate(playerPrefabs[0], transform.position, transform.rotation);
+                var cachedTransform = transform;
+                Instantiate(playerPrefabs[selectedPlayer.selectedPlayerIndex], cachedTransform.position, cachedTransform.rotation);
             }
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace SemihCelek.Sprinter.Utils
 {
-    public class FinishLevel : MonoBehaviour
+    public class FinishLevelBorder : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other)
         {

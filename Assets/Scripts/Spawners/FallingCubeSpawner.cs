@@ -28,6 +28,11 @@ namespace SemihCelek.Sprinter.Spawners
 
         public IEnumerator SpawnCoroutine()
         {
+            return Spawn();
+        }
+
+        private IEnumerator Spawn()
+        {            
             while (_numberOfObjectSpawned < maxNumberOfCubeToSpwan)
             {
                 yield return new WaitForSeconds(Random.Range(minWait, maxWait));
@@ -35,6 +40,7 @@ namespace SemihCelek.Sprinter.Spawners
 
                 _numberOfObjectSpawned++;
             }
+            
         }
 
         private Vector3 RandomPosition()

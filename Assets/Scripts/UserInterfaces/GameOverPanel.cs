@@ -10,15 +10,15 @@ namespace SemihCelek.Sprinter.UserInterfaces
         
         private void Awake()
         {
-            GameStateManager.OnDisplayGameOverUi += ActivatGameOverPanel;
+            GameStateManager.OnDisplayGameOverUi += ActivateGameOverPanel;
         }
 
         private void OnDestroy()
         {
-            GameStateManager.OnDisplayGameOverUi -= ActivatGameOverPanel;
+            GameStateManager.OnDisplayGameOverUi -= ActivateGameOverPanel;
         }
-    
-        public void ActivatGameOverPanel()
+
+        private void ActivateGameOverPanel()
         {
             gameOverPanel.SetActive(true);
         }

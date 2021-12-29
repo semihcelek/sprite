@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using SemihCelek.Sprinter.GameState;
+using SemihCelek.Sprinter.ScriptableObjects;
 using SemihCelek.Sprinter.Utils;
 using UnityEngine;
 
@@ -9,7 +10,10 @@ namespace SemihCelek.Sprinter.Player
     public class PlayerHealthController : MonoBehaviour
     {
         private readonly int _maxHealth = 100;
-        private int _health;
+        
+        [SerializeField]
+        private PlayerHealthValue playerHealth;
+        
 
         private WaitForSeconds _waitForDeadAnimation;
 
@@ -26,16 +30,16 @@ namespace SemihCelek.Sprinter.Player
 
         private void Awake()
         {
-            _health = _maxHealth;
-            OnUpdateHealthGui?.Invoke(_health);
+            playerHealth.playerHealth = _maxHealth;
+            OnUpdateHealthGui?.Invoke(playerHealth.playerHealth);
             _waitForDeadAnimation = new WaitForSeconds(3);
         }
 
         private void TakeDamage(int damage)
         {
-            _health -= damage;
-            OnUpdateHealthGui?.Invoke(_health);
-            if (_health <= 0)
+            playerHealth.playerHealth -= damage;
+            OnUpdateHealthGui?.Invoke(playerHealth.playerHealth);
+            if (playerHealth.playerHealth <= 0)
             {
                 Die();
             }
@@ -46,8 +50,8 @@ namespace SemihCelek.Sprinter.Player
             DamageDealer damage = other.GetComponent<DamageDealer>();
 
             if (damage == null) return;
-
-            TakeDamage(damage.DamageAmount);
+            
+            TakeDamage(damage.damageAmount);
             OnPushPlayerWhenTakesDamage?.Invoke();
         }
 
@@ -55,10 +59,10 @@ namespace SemihCelek.Sprinter.Player
         {
             OnDie?.Invoke();
             OnStopMovement?.Invoke();
-            StartCoroutine(WaitForDeadAnimCoroutine());
+            StartCoroutine(WaitForDeathAnimationCoroutine());
         }
 
-        private IEnumerator WaitForDeadAnimCoroutine()
+        private IEnumerator WaitForDeathAnimationCoroutine()
         {
             yield return _waitForDeadAnimation;
 

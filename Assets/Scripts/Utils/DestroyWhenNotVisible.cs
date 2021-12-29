@@ -9,7 +9,7 @@ namespace SemihCelek.Sprinter.Utils
         
         private Transform _playerPosition;
 
-        private void Awake()
+        private void Start()
         {
             _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         }

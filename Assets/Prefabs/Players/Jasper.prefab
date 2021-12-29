@@ -1620,8 +1620,7 @@ GameObject:
   - component: {fileID: 6497682818275413197}
   - component: {fileID: 4507423898420254073}
   - component: {fileID: 2276631654309860102}
-  - component: {fileID: 2556071157516997427}
-  - component: {fileID: 2569570501436198164}
+  - component: {fileID: 1735870597437126950}
   m_Layer: 0
   m_Name: Jasper
   m_TagString: Player
@@ -1716,6 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3424f40e326c4d2388066a95bdf2871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: {fileID: 11400000, guid: 196a4b0972f8b4c6ca38381e504a73d7, type: 2}
 --- !u!114 &4507423898420254073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,6 +1728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77051adc50044ef98f888bc4061e796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 11400000, guid: 7d3ddf529296a45fea561da6f64d8ead, type: 2}
 --- !u!114 &2276631654309860102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,21 +1741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bddf8d7538904f57b5d3486388308e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2556071157516997427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6091952492772863305}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa6df5cb774c476a9d3cce29b2b2e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeRange: 50
-  tapRange: 10
---- !u!114 &2569570501436198164
+--- !u!114 &1735870597437126950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1763,20 +1750,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6091952492772863305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eda371e5375f454490a86f21559ee38, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fa6df5cb774c476a9d3cce29b2b2e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Use:
-    Filter: 0
-    IgnoreStartedOverGui: 1
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 0}
-  _camera: {fileID: 0}
-  sensitivity: 1
-  damping: 10
-  inertia: 0
-  remainingTranslation: {x: 0, y: 0, z: 0}
+  swipeRange: 50
+  tapRange: 10
 --- !u!1 &6207633383749400941
 GameObject:
   m_ObjectHideFlags: 0

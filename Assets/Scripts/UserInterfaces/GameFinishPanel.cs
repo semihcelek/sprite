@@ -11,15 +11,15 @@ namespace SemihCelek.Sprinter.UserInterfaces
 
         private void Awake()
         {
-            GameStateManager.OnDisplayGameIsFinishedUi += ActivatGameFinishPanel;
+            GameStateManager.OnDisplayGameIsFinishedUi += ActivateGameFinishPanel;
         }
 
         private void OnDestroy()
         {
-            GameStateManager.OnDisplayGameIsFinishedUi -= ActivatGameFinishPanel;
+            GameStateManager.OnDisplayGameIsFinishedUi -= ActivateGameFinishPanel;
         }
 
-        private void ActivatGameFinishPanel()
+        private void ActivateGameFinishPanel()
         {
             gameFinishedPanel.SetActive(true);
         }
