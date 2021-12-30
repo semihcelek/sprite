@@ -35,7 +35,7 @@ namespace SemihCelek.Sprinter.Player
 
         private void Update()
         {
-            if (_inputController.Vertical >= 1f && !_characterController.isGrounded)
+            if (_inputController.VerticalInput >= 1f && !_characterController.isGrounded)
             {
                 _playerAnimator.SetTrigger(_isJumpedHash);
             }

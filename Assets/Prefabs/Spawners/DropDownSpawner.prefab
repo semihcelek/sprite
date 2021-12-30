@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1270362892726775751}
   - component: {fileID: 1270362892726775748}
-  - component: {fileID: 1270362892726775749}
   m_Layer: 0
   m_Name: DropDownSpawner
   m_TagString: Untagged
@@ -45,16 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2166c7c4602674382ae90f2ee89c2db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1270362892726775749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270362892726775746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b6278475442416ca45b138efcc070a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dropDownSpawnerPrefab: {fileID: 6889675932585362570, guid: d8a5d65fe34f0473f8982a243f9ec3d9, type: 3}

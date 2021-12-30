@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using SemihCelek.Sprinter.GameState;
-using SemihCelek.Sprinter.ScriptableObjects;
 using SemihCelek.Sprinter.Utils;
 using UnityEngine;
 
@@ -10,10 +9,7 @@ namespace SemihCelek.Sprinter.Player
     public class PlayerHealthController : MonoBehaviour
     {
         private readonly int _maxHealth = 100;
-        
-        [SerializeField]
-        private PlayerHealthValue playerHealth;
-        
+        private int _playerHealth;
 
         private WaitForSeconds _waitForDeadAnimation;
 
@@ -30,16 +26,16 @@ namespace SemihCelek.Sprinter.Player
 
         private void Awake()
         {
-            playerHealth.playerHealth = _maxHealth;
-            OnUpdateHealthGui?.Invoke(playerHealth.playerHealth);
+            _playerHealth = _maxHealth;
+            OnUpdateHealthGui?.Invoke(_playerHealth);
             _waitForDeadAnimation = new WaitForSeconds(3);
         }
 
         private void TakeDamage(int damage)
         {
-            playerHealth.playerHealth -= damage;
-            OnUpdateHealthGui?.Invoke(playerHealth.playerHealth);
-            if (playerHealth.playerHealth <= 0)
+            _playerHealth -= damage;
+            OnUpdateHealthGui?.Invoke(_playerHealth);
+            if (_playerHealth <= 0)
             {
                 Die();
             }
@@ -49,9 +45,12 @@ namespace SemihCelek.Sprinter.Player
         {
             DamageDealer damage = other.GetComponent<DamageDealer>();
 
-            if (damage == null) return;
-            
-            TakeDamage(damage.damageAmount);
+            if (damage == null)
+            {
+                return;
+            }
+
+            TakeDamage(damage.DamageAmount);
             OnPushPlayerWhenTakesDamage?.Invoke();
         }
 
@@ -59,10 +58,10 @@ namespace SemihCelek.Sprinter.Player
         {
             OnDie?.Invoke();
             OnStopMovement?.Invoke();
-            StartCoroutine(WaitForDeathAnimationCoroutine());
+            StartCoroutine(EndGameCoroutine());
         }
 
-        private IEnumerator WaitForDeathAnimationCoroutine()
+        private IEnumerator EndGameCoroutine()
         {
             yield return _waitForDeadAnimation;
 

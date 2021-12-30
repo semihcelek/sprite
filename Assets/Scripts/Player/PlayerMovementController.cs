@@ -10,12 +10,12 @@ namespace SemihCelek.Sprinter.Player
         private float playerSpeed = 2.0f;
         [SerializeField]
         private float jumpHeight = 1.0f;
+        private const float GravityValue = -9.81f;
 
         private CharacterController _characterController;
         private IInputController _inputController;
 
         private Vector3 _characterVelocity;
-        private const float GravityValue = -9.81f;
 
         private bool _isGrounded;
         private bool _isStopped = false;
@@ -78,7 +78,7 @@ namespace SemihCelek.Sprinter.Player
 
         private void Jump()
         {
-            if (_inputController.Vertical == 1 && _isGrounded)
+            if (_inputController.VerticalInput == 1 && _isGrounded)
             {
                 _characterVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * GravityValue);
             }
@@ -92,7 +92,7 @@ namespace SemihCelek.Sprinter.Player
                 _characterVelocity.y = 0f;
             }
 
-            Vector3 move = new Vector3(_inputController.Horizontal, 0, playerSpeed);
+            Vector3 move = new Vector3(_inputController.HorizontalInput, 0, playerSpeed);
 
             if (move != Vector3.zero)
             {

@@ -4,8 +4,8 @@ namespace SemihCelek.Sprinter.Input
 {
     public class SwipeController : MonoBehaviour, IInputController
     {
-        public float Horizontal { get; private set; }
-        public float Vertical { get; private set; }
+        public float HorizontalInput { get; private set; }
+        public float VerticalInput { get; private set; }
 
 
         private Vector2 _startTouchPosition;
@@ -37,22 +37,22 @@ namespace SemihCelek.Sprinter.Input
                 {
                     if (distance.x < -swipeRange)
                     {
-                        Horizontal = -1;
+                        HorizontalInput = -1;
                         _stopTouch = true;
                     }
                     else if (distance.x > swipeRange)
                     {
-                        Horizontal = 1;
+                        HorizontalInput = 1;
                         _stopTouch = true;
                     }
                     else if (distance.y > swipeRange)
                     {
-                        Vertical = 1;
+                        VerticalInput = 1;
                         _stopTouch = true;
                     }
                     else if (distance.y < -swipeRange)
                     {
-                        Vertical = -1;
+                        VerticalInput = -1;
                         _stopTouch = true;
                     }
                 }
@@ -61,8 +61,8 @@ namespace SemihCelek.Sprinter.Input
             if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 _stopTouch = false;
-                Horizontal = 0;
-                Vertical = 0;
+                HorizontalInput = 0;
+                VerticalInput = 0;
 
                 _endTouchPosition = UnityEngine.Input.GetTouch(0).position;
             }
