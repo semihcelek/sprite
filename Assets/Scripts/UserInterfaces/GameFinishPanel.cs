@@ -7,7 +7,7 @@ namespace SemihCelek.Sprinter.UserInterfaces
     public class GameFinishPanel : MonoBehaviour
     {
         [SerializeField]
-        private GameObject gameFinishedPanel;
+        private GameObject _gameFinishedPanel;
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace SemihCelek.Sprinter.UserInterfaces
 
         private void ActivateGameFinishPanel()
         {
-            gameFinishedPanel.SetActive(true);
+            _gameFinishedPanel.SetActive(true);
         }
     }
 }

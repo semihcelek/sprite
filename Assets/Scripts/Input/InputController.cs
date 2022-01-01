@@ -7,7 +7,7 @@ namespace SemihCelek.Sprinter.Input
         public float HorizontalInput { get; private set; }
         public float VerticalInput { get; private set; }
 
-        void Update()
+       private void Update()
         {
             HorizontalInput = UnityEngine.Input.GetAxis("Horizontal");
             VerticalInput = UnityEngine.Input.GetAxis("Vertical");

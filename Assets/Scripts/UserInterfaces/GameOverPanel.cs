@@ -6,7 +6,7 @@ namespace SemihCelek.Sprinter.UserInterfaces
     public class GameOverPanel : MonoBehaviour
     {
         [SerializeField]
-        private GameObject gameOverPanel;
+        private GameObject _gameOverPanel;
         
         private void Awake()
         {
@@ -20,7 +20,7 @@ namespace SemihCelek.Sprinter.UserInterfaces
 
         private void ActivateGameOverPanel()
         {
-            gameOverPanel.SetActive(true);
+            _gameOverPanel.SetActive(true);
         }
     }
 }

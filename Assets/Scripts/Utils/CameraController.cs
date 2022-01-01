@@ -5,7 +5,7 @@ namespace SemihCelek.Sprinter.Utils
     public class CameraController : MonoBehaviour
     {
         [SerializeField]
-        private float smoothTime = 0.5f;
+        private float _smoothTime = 0.5f;
 
         private Transform _target;
         private Vector3 _offset;
@@ -22,7 +22,7 @@ namespace SemihCelek.Sprinter.Utils
         {
             Vector3 newPosition = new Vector3(_offset.x + _target.position.x, _offset.y + _target.position.y,
                 _offset.z + _target.position.z);
-            transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref _cameraVelocity, smoothTime);
+            transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref _cameraVelocity, _smoothTime);
         }
     }
 }

@@ -7,9 +7,9 @@ namespace SemihCelek.Sprinter.UserInterfaces
     public class DisplayCharacterOnMenuController : MonoBehaviour
     {
         [SerializeField]
-        private GameObject[] playerPrefabs;
+        private GameObject[] _playerPrefabs;
         [SerializeField]
-        private SelectedPlayerIndex selectedPlayerIndex;
+        private SelectedPlayer _selectedPlayerIndex;
 
         private GameObject _selectedCharacter;
 
@@ -19,7 +19,7 @@ namespace SemihCelek.Sprinter.UserInterfaces
 
         private void Awake()
         {
-            selectedPlayerIndex.selectedPlayerIndex = 0;
+            _selectedPlayerIndex.SelectedPlayerIndex = 0;
             DisplayCharacter();
 
             _playerPosition = new Vector3(0, 0, -5.2f);
@@ -28,21 +28,21 @@ namespace SemihCelek.Sprinter.UserInterfaces
 
         private void DisplayCharacter()
         {
-            _selectedCharacter = Instantiate(playerPrefabs[selectedPlayerIndex.selectedPlayerIndex], _playerPosition,
+            _selectedCharacter = Instantiate(_playerPrefabs[_selectedPlayerIndex.SelectedPlayerIndex], _playerPosition,
                 _playerRotation);
         }
 
         public void DisplayNextCharacter()
         {
             Destroy(_selectedCharacter);
-            selectedPlayerIndex.selectedPlayerIndex++;
+            _selectedPlayerIndex.SelectedPlayerIndex++;
             DisplayCharacter();
         }
 
         public void DisplayPreviousCharacter()
         {
             Destroy(_selectedCharacter);
-            selectedPlayerIndex.selectedPlayerIndex--;
+            _selectedPlayerIndex.SelectedPlayerIndex--;
             DisplayCharacter();
         }
     }

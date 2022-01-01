@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dc69987afb4767a1cc468795fe1c02, type: 3}
-  m_Name: SelectedPlayerIndex
+  m_Name: SelectedPlayer
   m_EditorClassIdentifier: 
-  selectedPlayerIndex: 0
+  SelectedPlayerIndex: 0

@@ -22,10 +22,7 @@ namespace SemihCelek.Sprinter.GoogleAds
             string adUnitId = "unexpected_platform";
 #endif
 
-            if (_bannerView != null)
-            {
-                _bannerView.Destroy();
-            }
+            _bannerView?.Destroy();
 
             _bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
 

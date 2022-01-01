@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df47ffc8c684e9194ceeb5600f40589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameFinishedPanel: {fileID: 2023914722}
+  _gameFinishedPanel: {fileID: 2023914722}
 --- !u!1 &223865827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,7 +2519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 536f6a5d71a6346e3a8d2fb37d9b8f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 783670269}
+  _healthText: {fileID: 783670269}
 --- !u!114 &783670269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,7 +3135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bc7f2b803cc41a6965b304af2e21a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 0.2
+  _smoothTime: 0.5
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4399,10 +4399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38421e440a5aa4b9db09d12738096d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabs:
+  _playerPrefabs:
   - {fileID: 6091952492772863305, guid: 259156ad967494b0aa1924e36d45fa8d, type: 3}
   - {fileID: 6876382556995268925, guid: 0d40fdfed1036471a958b90a5192af77, type: 3}
-  selectedPlayer: {fileID: 11400000, guid: ebdae2e09e8bf44029b7f6b810d3723e, type: 2}
+  _selectedPlayer: {fileID: 11400000, guid: b29b504b403d74369abef36056521e8e, type: 2}
 --- !u!4 &1459289153
 Transform:
   m_ObjectHideFlags: 0
@@ -4876,7 +4876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b655be615314a9eb19b0b4b637b337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoretext: {fileID: 1603766771}
+  _scoreText: {fileID: 1603766771}
 --- !u!1 &1630579672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4921,7 +4921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235e3c4f16e84d4292b04a5cb9012dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 800683173}
+  _gameOverPanel: {fileID: 800683173}
 --- !u!4 &1663612491 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1517485917933549036, guid: 1456eab75fb244f95a26ed5aadede850, type: 3}

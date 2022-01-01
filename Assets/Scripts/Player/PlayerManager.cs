@@ -5,16 +5,17 @@ namespace SemihCelek.Sprinter.Player
 {
     public class PlayerManager : MonoBehaviour
     {
-        public GameObject[] playerPrefabs;
+        [SerializeField]
+        private GameObject[] _playerPrefabs;
 
         [SerializeField]
-        private SelectedPlayerIndex selectedPlayer;
+        private SelectedPlayer _selectedPlayer;
 
         private void Awake()
         {
             {
                 var cachedTransform = transform;
-                Instantiate(playerPrefabs[selectedPlayer.selectedPlayerIndex], cachedTransform.position, cachedTransform.rotation);
+                Instantiate(_playerPrefabs[_selectedPlayer.SelectedPlayerIndex], cachedTransform.position, cachedTransform.rotation);
             }
         }
     }

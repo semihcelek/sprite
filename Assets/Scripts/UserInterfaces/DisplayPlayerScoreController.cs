@@ -7,17 +7,17 @@ namespace SemihCelek.Sprinter.UserInterfaces
     public class DisplayPlayerScoreController : MonoBehaviour
     {
         [SerializeField]
-        private TMP_Text scoretext;
+        private TMP_Text _scoreText;
 
         private void Awake()
         {
-            scoretext.text = "0";
+            _scoreText.text = "0";
             PlayerScoreController.OnUpdateScore += UpdateScoreGui;
         }
 
         private void UpdateScoreGui(int score)
         {
-            scoretext.text = score.ToString();
+            _scoreText.text = score.ToString();
         }
     }
 }

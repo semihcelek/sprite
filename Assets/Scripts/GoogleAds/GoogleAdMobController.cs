@@ -7,9 +7,9 @@ namespace SemihCelek.Sprinter.GoogleAds
 {
     public class GoogleAdMobController : MonoBehaviour
     {
-        private BannerView bannerView;
+        private BannerView _bannerView;
 
-        private void HandleInitCompleteAction(InitializationStatus initstatus)
+        private void HandleInitCompleteAction(InitializationStatus initStatus)
         {
             MobileAdsEventExecutor.ExecuteInUpdate(() => { RequestBannerAd(); });
         }
@@ -19,7 +19,7 @@ namespace SemihCelek.Sprinter.GoogleAds
             MobileAds.Initialize(HandleInitCompleteAction);
         }
 
-        public void RequestBannerAd()
+        private void RequestBannerAd()
         {
 #if UNITY_EDITOR
             string adUnitId = "unused";
@@ -31,14 +31,14 @@ namespace SemihCelek.Sprinter.GoogleAds
         string adUnitId = "unexpected_platform";
 #endif
 
-            if (bannerView != null)
+            if (_bannerView != null)
             {
-                bannerView.Destroy();
+                _bannerView.Destroy();
             }
 
-            bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+            _bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
 
-            bannerView.LoadAd(CreateAdRequest());
+            _bannerView.LoadAd(CreateAdRequest());
         }
 
         private AdRequest CreateAdRequest()

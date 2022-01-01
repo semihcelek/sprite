@@ -7,57 +7,26 @@ namespace SemihCelek.Sprinter.Input
         public float HorizontalInput { get; private set; }
         public float VerticalInput { get; private set; }
 
-
         private Vector2 _startTouchPosition;
         private Vector2 _currentPosition;
         private Vector2 _endTouchPosition;
         private bool _stopTouch = false;
+        
+        [SerializeField]
+        private float _swipeRange = 50f;
 
-        public float swipeRange = 50;
-        public float tapRange = 10;
 
-        void Update()
+        private void Update()
         {
-            Swipe();
+            TouchStart();
+
+            DetectSwipeTouch();
+
+            EndTouch();
         }
 
-        private void Swipe()
+        private void EndTouch()
         {
-            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Began)
-            {
-                _startTouchPosition = UnityEngine.Input.GetTouch(0).position;
-            }
-
-            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Moved)
-            {
-                _currentPosition = UnityEngine.Input.GetTouch(0).position;
-                var distance = _currentPosition - _startTouchPosition;
-
-                if (!_stopTouch)
-                {
-                    if (distance.x < -swipeRange)
-                    {
-                        HorizontalInput = -1;
-                        _stopTouch = true;
-                    }
-                    else if (distance.x > swipeRange)
-                    {
-                        HorizontalInput = 1;
-                        _stopTouch = true;
-                    }
-                    else if (distance.y > swipeRange)
-                    {
-                        VerticalInput = 1;
-                        _stopTouch = true;
-                    }
-                    else if (distance.y < -swipeRange)
-                    {
-                        VerticalInput = -1;
-                        _stopTouch = true;
-                    }
-                }
-            }
-
             if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Ended)
             {
                 _stopTouch = false;
@@ -65,6 +34,47 @@ namespace SemihCelek.Sprinter.Input
                 VerticalInput = 0;
 
                 _endTouchPosition = UnityEngine.Input.GetTouch(0).position;
+            }
+        }
+
+        private void DetectSwipeTouch()
+        {
+            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                _currentPosition = UnityEngine.Input.GetTouch(0).position;
+                var distance = _currentPosition - _startTouchPosition;
+
+                if (!_stopTouch)
+                {
+                    if (distance.x < -_swipeRange)
+                    {
+                        HorizontalInput = -1f;
+                        _stopTouch = true;
+                    }
+                    else if (distance.x > _swipeRange)
+                    {
+                        HorizontalInput = 1f;
+                        _stopTouch = true;
+                    }
+                    else if (distance.y > _swipeRange)
+                    {
+                        VerticalInput = 1f;
+                        _stopTouch = true;
+                    }
+                    else if (distance.y < -_swipeRange)
+                    {
+                        VerticalInput = -1f;
+                        _stopTouch = true;
+                    }
+                }
+            }
+        }
+
+        private void TouchStart()
+        {
+            if (UnityEngine.Input.touchCount > 0 && UnityEngine.Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                _startTouchPosition = UnityEngine.Input.GetTouch(0).position;
             }
         }
     }

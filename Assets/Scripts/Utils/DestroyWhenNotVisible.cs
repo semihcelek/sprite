@@ -5,7 +5,7 @@ namespace SemihCelek.Sprinter.Utils
     public class DestroyWhenNotVisible : MonoBehaviour
     {
         [SerializeField] 
-        private float destroyGameObjectDistance=60;
+        private float _destroyGameObjectDistance=60;
         
         private Transform _playerPosition;
 
@@ -16,7 +16,7 @@ namespace SemihCelek.Sprinter.Utils
 
         private void Update()
         {
-            if(_playerPosition.position.z>gameObject.transform.position.z+destroyGameObjectDistance)
+            if(_playerPosition.position.z>gameObject.transform.position.z+_destroyGameObjectDistance)
             {
                 Destroy(gameObject);
             }

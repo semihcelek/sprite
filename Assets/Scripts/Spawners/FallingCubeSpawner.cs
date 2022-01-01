@@ -7,14 +7,14 @@ namespace SemihCelek.Sprinter.Spawners
     public class FallingCubeSpawner : MonoBehaviour, ISpawner
     {
         [SerializeField]
-        private GameObject objectPrefab;
+        private GameObject _objectPrefab;
         [SerializeField]
-        private float minWait;
+        private float _minWait;
         [SerializeField]
-        private float maxWait;
+        private float _maxWait;
         [SerializeField]
-        
-        private int maxNumberOfCubeToSpwan;
+        private int _maxNumberOfCubeToSpawn;
+
         private int _numberOfObjectSpawned;
 
         private Vector3 _spawnArea;
@@ -32,15 +32,14 @@ namespace SemihCelek.Sprinter.Spawners
         }
 
         private IEnumerator Spawn()
-        {            
-            while (_numberOfObjectSpawned < maxNumberOfCubeToSpwan)
+        {
+            while (_numberOfObjectSpawned < _maxNumberOfCubeToSpawn)
             {
-                yield return new WaitForSeconds(Random.Range(minWait, maxWait));
-                GameObject spawned = Instantiate(objectPrefab, RandomPosition(), transform.rotation);
+                yield return new WaitForSeconds(Random.Range(_minWait, _maxWait));
+                GameObject spawned = Instantiate(_objectPrefab, RandomPosition(), transform.rotation);
 
                 _numberOfObjectSpawned++;
             }
-            
         }
 
         private Vector3 RandomPosition()

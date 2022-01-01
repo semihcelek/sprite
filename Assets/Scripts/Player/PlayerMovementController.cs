@@ -7,9 +7,9 @@ namespace SemihCelek.Sprinter.Player
     public class PlayerMovementController : MonoBehaviour
     {
         [SerializeField]
-        private float playerSpeed = 2.0f;
+        private float _playerSpeed = 2.5f;
         [SerializeField]
-        private float jumpHeight = 1.0f;
+        private float _jumpHeight = 1.2f;
         private const float GravityValue = -9.81f;
 
         private CharacterController _characterController;
@@ -21,12 +21,16 @@ namespace SemihCelek.Sprinter.Player
         private bool _isStopped = false;
         private bool _isPushedBack = false;
 
+        private WaitForSeconds _waitForSeconds;
+
         private void Awake()
         {
             _inputController = GetComponent<IInputController>();
             _characterController = gameObject.GetComponent<CharacterController>();
             PlayerHealthController.OnStopMovement += StopPlayerMove;
             PlayerHealthController.OnPushPlayerWhenTakesDamage += PushCharacter;
+
+            _waitForSeconds = new WaitForSeconds(1);
         }
 
         private void OnDestroy()
@@ -43,7 +47,7 @@ namespace SemihCelek.Sprinter.Player
 
         private IEnumerator WaitPushCoroutine()
         {
-            yield return new WaitForSeconds(1);
+            yield return _waitForSeconds;
             _isPushedBack = false;
         }
 
@@ -60,7 +64,7 @@ namespace SemihCelek.Sprinter.Player
         {
             if (_isPushedBack)
             {
-                _characterController.Move(Vector3.back * Time.deltaTime * playerSpeed);
+                _characterController.Move(Vector3.back * Time.deltaTime * _playerSpeed);
                 _characterVelocity.y += GravityValue * Time.deltaTime;
                 _characterController.Move(_characterVelocity * Time.deltaTime);
             }
@@ -70,7 +74,7 @@ namespace SemihCelek.Sprinter.Player
             }
             else
             {
-                _characterController.Move(move * Time.deltaTime * playerSpeed);
+                _characterController.Move(move * Time.deltaTime * _playerSpeed);
                 _characterVelocity.y += GravityValue * Time.deltaTime;
                 _characterController.Move(_characterVelocity * Time.deltaTime);
             }
@@ -78,9 +82,9 @@ namespace SemihCelek.Sprinter.Player
 
         private void Jump()
         {
-            if (_inputController.VerticalInput == 1 && _isGrounded)
+            if (_inputController.VerticalInput == 1f && _isGrounded)
             {
-                _characterVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * GravityValue);
+                _characterVelocity.y += Mathf.Sqrt(_jumpHeight * -3.0f * GravityValue);
             }
         }
 
@@ -92,7 +96,7 @@ namespace SemihCelek.Sprinter.Player
                 _characterVelocity.y = 0f;
             }
 
-            Vector3 move = new Vector3(_inputController.HorizontalInput, 0, playerSpeed);
+            Vector3 move = new Vector3(_inputController.HorizontalInput, 0, _playerSpeed);
 
             if (move != Vector3.zero)
             {
