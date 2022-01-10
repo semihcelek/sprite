@@ -1,4 +1,3 @@
-using SemihCelek.Sprinter.Player;
 using SemihCelek.Sprinter.ScriptableObjects;
 using UnityEngine;
 
