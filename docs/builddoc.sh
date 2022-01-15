@@ -1,0 +1,1 @@
+pandoc Final_Report.md -o dist/Final_Report.pdf  --from markdown --template eisvogel.latex --listings --toc -N
