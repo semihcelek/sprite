@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using SemihCelek.Sprinter.Input;
 using UnityEngine;
 
 namespace SemihCelek.Sprinter.Player
 {
-    public class PlayerMovementController : MonoBehaviour
+    public class PlayerMovementController : CharacterStateMachine
     {
         [SerializeField]
         private float _playerSpeed = 2.5f;
@@ -33,6 +34,11 @@ namespace SemihCelek.Sprinter.Player
             _waitForSeconds = new WaitForSeconds(1);
         }
 
+        private void Start()
+        {
+            SetState(new IdleState(this));
+        }
+
         private void OnDestroy()
         {
             PlayerHealthController.OnStopMovement -= StopPlayerMove;
@@ -51,13 +57,15 @@ namespace SemihCelek.Sprinter.Player
             _isPushedBack = false;
         }
 
-        void Update()
+        private void Update()
         {
-            var move = HorizontalMovement();
+            State.HandleInput(_characterController, _inputController);
 
-            Jump();
-
-            ApplyMovement(move);
+            // var move = HorizontalMovement();
+            //
+            // Jump();
+            //
+            // ApplyMovement(move);
         }
 
         private void ApplyMovement(Vector3 move)
